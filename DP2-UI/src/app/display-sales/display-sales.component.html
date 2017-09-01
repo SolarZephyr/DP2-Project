@@ -1,0 +1,29 @@
+<div>
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Sale ID</th>
+                <th>Product ID</th>
+                <th class="mdl-data-table__cell--non-numeric">Product Name</th>
+                <th class="mdl-data-table__cell--non-numeric">Type</th>
+                <th>Unit Price</th>
+                <th>Amount Sold</th>
+                <thStatus></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="sale in sales">
+                <td>{{sale.transId}}</td>
+                <td>{{sale.saleId}}</td>
+                <td>{{sale.prodId}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{sale.prodName}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{sale.prodType}}</td>
+                <td>{{sale.unitPrice}}</td>
+                <td>{{sale.amtSold}}</td>
+                <td><button ng-click="edit({{sale.transId}})" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
