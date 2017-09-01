@@ -11,9 +11,9 @@
             </label>
         </fieldset>
         <fieldset>
-            <label for="itmPrice">Unit Price: <input type="text" name="itmPrice" id="itmPrice" value="item.price" pattern="^*[1-9]+\.+[0-9][-9]{3,}$"
+            <label for="itmPrice">Unit Price: <input type="text" name="itmPrice" id="itmPrice" value="{{item.price}}" pattern="^*[1-9]+\.+[0-9][-9]{3,}$"
                 placeholder="0.00"></label>
-            <label for="itmQuatity">Quantity: <input type="text" name="itmQuantity" id="itmQuantity" value="item.quanity" pattern="^[0-9]{1,}$"
+            <label for="itmQuatity">Quantity: <input type="text" name="itmQuantity" id="itmQuantity" value="{{item.quanity}}" pattern="^[0-9]{1,}$"
                 placeholder="0"></label>
         </fieldset>
         <input type="submit" value="Save" ng-click="save()"/>
