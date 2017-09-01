@@ -1,0 +1,26 @@
+<div>
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+        <thead>
+            <tr>
+                <th>Item ID</th>
+                <thclass="mdl-data-table__cell--non-numeric">Item Name</th>
+                <th class="mdl-data-table__cell--non-numeric">Type</th>
+                <th>Unit Price</th>
+                <th>Stock</th>
+                <th>Amount Sold</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in inventory">
+                <td>{{item.id}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{item.type}}</td>
+                <td>{{item.unitPrice}}</td>
+                <td>{{item.stock}}</td>
+                <td>{{item.amtSold}}</td>
+                <td><button ng-click="edit({{item.id}})" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
