@@ -28,7 +28,13 @@
   </div>
   <main class="mdl-layout__content">
     <div class="page-content">
-        <router-outlet></router-outlet>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col"></div>
+        <div class="mdl-cell mdl-cell--8-col">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="mdl-cell mdl-cell--2-col"></div>
+      </div>
     </div>
   </main>
 </div>
