@@ -1,15 +1,15 @@
 <div>
-    <form action="">
+    <form action="" method="post">
         <fieldset>
             <p ng-hide="item.id==''">ItemID: {{item.id}}</p>
             <div class="mdl-textfield mdl-js-textfield">
                 <input class="mdl-textfield__input" type="text" name="itmName" id="itmName" pattern="^[A-Za-z]{1,40}$" value="{{item.value}}"
-                        ng-model="itmName"/>
+                        ng-model="item.name"/>
                 <label for="itmName" class="mdl-textfield__label">Item Name</label>
             </div>
             <div class="mdl-selectfield mdl-js-selectfield">
                 Type
-                <select name="itmType" id="itmType" ng-model="itmType" class="mdl-selectfield__select">
+                <select name="itmType" id="itmType" ng-model="item.type" class="mdl-selectfield__select">
                     <option value="">Please select a type</option>
                     <option value="type" ng-repeat="type in types">{{type}}</option>
                 </select>
@@ -17,19 +17,20 @@
         </fieldset>
         <fieldset>
             <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" name="itmPrice" id="itmPrice" value="{{item.price}}" pattern="^*[1-9]+\.+[0-9][-9]{3,}$"
-                ng-model="itmPrice"/>
+                <input class="mdl-textfield__input" type="text" name="itmPrice" id="itmPrice" value="{{item.price}}" pattern="^\d+\.\d{2}$"
+                ng-model="item.price"/>
                 <label for="itmPrice" class="mdl-textfield__label">Unit Price: 0.00</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield">
                 <input type="text" class="mdl-textfield__input" name="itmQuantity" id="itmQuantity" value="{{item.quanity}}" pattern="^[0-9]{1,}$"
-                 ng-model="itmQuantity"/>
+                 ng-model="item.quantity"/>
                 <label for="itmQuatity" class="mdl-textfield__label">Quantity</label>
             </div>
         </fieldset>
         <br/>
-        <input type="submit" value="Save" ng-click="save()"/>
-        <input type="reset" value="Clear"/>
-        <input type="button" value="Cancel" ng-click="back()"/>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" ng-hide="item.id!=''" value="Save" ng-click="save(item)"/>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" ng-hide="item.id==''" value="Confirm" ng-click="update(item)">
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear"/>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel" ng-click="back()"/>
     </form>
 </div>
