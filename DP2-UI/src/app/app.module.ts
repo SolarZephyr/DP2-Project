@@ -9,6 +9,8 @@ import { ItemForm } from './item/item-form.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
 import { NotFound } from './common/notfound/not-found.component';
 
+import {HttpClientModule} from '@angular/common/http';
+
 //IMPORT ROUTES
 import { appRoutes } from './app.routing';
 import { RouterModule, Routes } from '@angular/router';
@@ -23,6 +25,7 @@ import { RouterModule, Routes } from '@angular/router';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes
     )
