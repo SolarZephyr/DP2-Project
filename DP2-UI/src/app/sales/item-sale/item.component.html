@@ -1,3 +1,17 @@
 <div>
-    THIS WILL BE THE SALES FORMM
+    <div class="mdl-selectfield mdl-js-selectfield">
+        <select name="itmName{{num}}" id="itmName{{num}}" ng-model="sale.items[num].id">
+            <option value="">Select product</option>
+            <option ng-repeat="product in products" value="{{product.id}}">{{product.name}}</option>
+        </select>
+        <select name="itmQuantity{{num}}" id="itmQuantity{{num}}" ng-model="sale.items[num].quantity">
+                <option value="">Select product</option>
+                <option ng-repeat="product in products" value="{{product.id}}">{{product.name}}</option>
+        </select>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield">
+        <p>
+            Unit Price: ${{product.(sale.items[num].id).price}} Total: {{product.(sale.items[num].id).price * sale.items[num].quantity}}
+        </p>
+    </div>
 </div>

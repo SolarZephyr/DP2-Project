@@ -1,3 +1,18 @@
 <div>
-    This will be the sales form.
+    <div>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Add Item">
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield">
+        <input type="text" class="mdl-textfield__input" name="saleDate" id="saleDate" ng-model="sale.date" pattern="^\d{1,2}/\d{1,2}/\d{4}$"/>
+        <label for="saleDate" class="mdl-textfield__label">Date 00/00/0000</label>
+    </div>
+    <br/>
+    <div>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Confirm" ng-click="save(sale)"/>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear"/>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel" ng-click="back()">
+    </div>
 </div>

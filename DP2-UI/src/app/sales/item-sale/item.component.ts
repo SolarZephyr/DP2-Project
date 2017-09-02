@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'sales-form',
-  templateUrl: './sales-form.component.html'
+  selector: 'item',
+  templateUrl: './item.component.html'
 })
 
-export class SalesForm {
-  title = 'sales form';
+export class Item {
+  title = 'item';
   
 }

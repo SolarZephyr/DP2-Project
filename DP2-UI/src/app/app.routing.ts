@@ -6,7 +6,7 @@ import { NotFound } from './common/notfound/not-found.component';
 
 export const appRoutes: Routes = [
   { path: '',
-    redirectTo: 'SalesForm',
+    redirectTo: 'Sales',
     pathMatch: 'full'
   },
   { path: 'Sales', component: SalesForm },

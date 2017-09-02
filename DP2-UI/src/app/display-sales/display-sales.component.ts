@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 
 export class DisplaySales {
   title = 'display sales';
+  sales = ['0001', '0001', '0001', 'jgldjslgj', 'Medicin', '10.00', '10'];
   
 }
