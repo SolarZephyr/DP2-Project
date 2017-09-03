@@ -4,6 +4,7 @@ import { ItemForm } from './item/item-form.component';
 import { Inventory } from './inventory/inventory.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
 import { NotFound } from './common/notfound/not-found.component';
+import { DisplaySales } from './sales/display-sales.component';
 
 export const appRoutes: Routes = [
   { path: '',
@@ -13,6 +14,7 @@ export const appRoutes: Routes = [
   { path: 'Sales', component: SalesForm },
   { path: 'Data', component: DataAnalysis },
   { path: 'Item', component: ItemForm},
-  //{ path: 'Inventory', component: Inventory},
+  { path: 'DisplaySales', component: DisplaySales},
+  { path: 'Inventory', component: Inventory},
   { path: '**', component: NotFound }
 ];

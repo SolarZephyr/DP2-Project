@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SalesForm } from './sales/sales-form.component';
 import { ItemForm } from './item/item-form.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
+import { DisplaySales } from './sales/display-sales.component';
 import { Inventory } from './inventory/inventory.component';
 import { NotFound } from './common/notfound/not-found.component';
 
@@ -20,9 +21,10 @@ import { RouterModule, Routes } from '@angular/router';
     AppComponent,
     //IMPORT PAGE COMPONENTS
     SalesForm,
+    DisplaySales,
     DataAnalysis,
     ItemForm,
-    //Inventory,
+    Inventory,
     NotFound,
   ],
   imports: [

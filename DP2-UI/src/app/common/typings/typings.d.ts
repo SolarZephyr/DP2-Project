@@ -1,7 +1,17 @@
 export interface Product{
-   ID: number,
-   Name ?: string,
-   Type ?: string,
-   Price ?: number,
-   Stock ?: number
+   ID: number;
+   Name ?: string;
+   Type ?: string;
+   Price ?: number;
+   Stock ?: number;
+}
+
+export interface Sale{
+    ID: number;
+    TransID ?: number;
+    ProdID ?: number;
+    ProdName ?: string;
+    ProdType ?: string;
+    UnitPrice ?: number;
+    AmtSold ?: number;
 }

@@ -7,26 +7,24 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title">People Health Pharmacy Inc.</span>
+            <a class="mdl-navigation__link" href=""><span class="mdl-layout-title">People Health Pharmacy Inc.</span></a>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
-      <!-- Navigation. We hide it in small screens. -->
+      <!-- Navigation. We hide it in small screens. (currently hidden)
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         <a class="mdl-navigation__link" routerLink="/Sales" routerLinkActive="active">ENTRY FORM</a>
         <a class="mdl-navigation__link" routerLink="/Data" routerLinkActive="active">DATA ANALYSIS</a>
-      </nav>
+      </nav> -->
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">People Health Pharmacy Inc.</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Home</a>
-      <a class="mdl-navigation__link" href="/Sales">Add Sale</a>
-      <a class="mdl-navigation__link" href="/Item">Add Inventory Item</a>
-      <a class="mdl-navigation__link" href="/Inventory">Display Inventory</a>
-      <a class="mdl-navigation__link" href="/DisplaySales">DisplaySales</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
+
+      <a class="mdl-navigation__link"  routerLink="/Sales" routerLinkActive="active">Add Sale</a>
+      <a class="mdl-navigation__link"  routerLink="/Item" routerLinkActive="active">Add Inventory Item</a>
+      <a class="mdl-navigation__link"  routerLink="/Inventory" routerLinkActive="active">Display Inventory</a>
+      <a class="mdl-navigation__link"  routerLink="/DisplaySales" routerLinkActive="active">DisplaySales</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
