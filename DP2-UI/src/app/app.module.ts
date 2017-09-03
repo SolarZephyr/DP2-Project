@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SalesForm } from './sales/sales-form.component';
 import { ItemForm } from './item/item-form.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
+import { Inventory } from './inventory/inventory.component';
 import { NotFound } from './common/notfound/not-found.component';
 
 import {HttpClientModule} from '@angular/common/http';
@@ -21,6 +22,7 @@ import { RouterModule, Routes } from '@angular/router';
     SalesForm,
     DataAnalysis,
     ItemForm,
+    //Inventory,
     NotFound,
   ],
   imports: [
