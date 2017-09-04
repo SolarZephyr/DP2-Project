@@ -1,0 +1,27 @@
+
+<table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th>Product ID</th>
+      <th class="mdl-data-table__cell--non-numeric">Name</th>
+      <th class="mdl-data-table__cell--non-numeric">Type</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.ID}}</td>
+      <td>{{product.Name}}</td>
+      <td>{{product.Type}}</td>
+      <td>{{product.Price}}</td>
+      <td>{{product.Stock}}</td>
+      <td>
+        <button class="mdl-button mdl-js-button mdl-button--raised">
+          Edit
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

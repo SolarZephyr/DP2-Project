@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -8,7 +9,7 @@ import { NewTransactionForm } from './sales/new-transaction-form.component';
 import { ItemForm } from './item/item-form.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
 import { TransactionsComponent } from './sales/transaction-log.component';
-//import { Inventory } from './inventory/inventory.component';
+import { InventoryComponent } from './inventory/inventory.component';
 import { NotFound } from './common/notfound/not-found.component';
 
 import {HttpClientModule} from '@angular/common/http';
@@ -24,11 +25,12 @@ import { RouterModule, Routes } from '@angular/router';
     TransactionsComponent,
     DataAnalysis,
     ItemForm,
-    //Inventory,
+    InventoryComponent,
     NotFound,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes

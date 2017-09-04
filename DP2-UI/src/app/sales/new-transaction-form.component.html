@@ -1,18 +1,68 @@
 <div>
+
+    <select [(ngModel)]="toAdd.ProdID">
+        <ng-container *ngFor="let product of allProducts">
+        <option  value="{{product.ID}}">{{product.Name}}</option>
+        </ng-container>
+    </select>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="number" id="amt" [(ngModel)]="toAdd.AmtSold">
+    <label class="mdl-textfield__label" for="amt">Amount...</label>
+  </div>
     <div>
-        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Add Item">
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Add Item" (click)="Save()">
     </div>
-    <div>
-        <router-outlet></router-outlet>
-    </div>
-    <div class="mdl-textfield mdl-js-textfield">
-        <input type="text" class="mdl-textfield__input" name="saleDate" id="saleDate" ng-model="sale.date" pattern="^\d{1,2}/\d{1,2}/\d{4}$"/>
-        <label for="saleDate" class="mdl-textfield__label">Date 00/00/0000</label>
-    </div>
+    
     <br/>
-    <div>
+</div>
+
+<br>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">ID</th>
+      <th class="mdl-data-table__cell--non-numeric">ProdID</th>
+      <th class="mdl-data-table__cell--non-numeric">TransID</th>
+      <th class="mdl-data-table__cell--non-numeric">Unit Price</th>
+      <th class="mdl-data-table__cell--non-numeric">Amount</th>
+      <th class="mdl-data-table__cell--non-numeric">Total</th>
+      <th></th>
+    </tr>
+  </thead>
+    <tfoot>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      <td><b>Total:</b></td>
+      <td>{{total}}</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <ng-container *ngFor="let sale of newTransaction">
+    <tr>
+      <td>auto</td>
+      <td>{{sale.ProdID}}</td>
+      <td>{{sale.TransID}}</td>
+      <td>{{sale.UnitPrice}}</td>
+      <td>{{sale.AmtSold}}</td>
+      <td>{{sale.AmtSold*sale.UnitPrice}}</td>
+      <td>
+        <button class="mdl-button mdl-js-button mdl-button--icon" (click)="remove(sale.ID)">
+            <i class="material-icons">clear</i>
+        </button>
+      </td>
+    </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+
+ <div>
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Confirm" ng-click="save(sale)"/>
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear"/>
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel" ng-click="back()">
     </div>
-</div>

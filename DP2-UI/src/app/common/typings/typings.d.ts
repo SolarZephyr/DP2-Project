@@ -1,5 +1,5 @@
 export interface Product{
-   ID: number;
+   ID ?: number;
    Name ?: string;
    Type ?: string;
    Price ?: number;
@@ -7,7 +7,7 @@ export interface Product{
 }
 
 export interface Sale{
-    ID: number;
+    ID ?: number;
     TransID ?: number;
     ProdID ?: number;
     ProdName ?: string;
@@ -17,7 +17,7 @@ export interface Sale{
 }
 
 export interface Transaction{
-    ID: number;
+    ID ?: number;
     EmployeeID ?: number;
     Status ?: number;
     Date ?: Date;

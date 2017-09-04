@@ -1,7 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NewTransactionForm } from './sales/new-transaction-form.component';
 import { ItemForm } from './item/item-form.component';
-//import { Inventory } from './inventory/inventory.component';
+import { InventoryComponent } from './inventory/inventory.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
 import { NotFound } from './common/notfound/not-found.component';
 import { TransactionsComponent } from './sales/transaction-log.component';
@@ -15,6 +15,6 @@ export const appRoutes: Routes = [
   { path: 'Data', component: DataAnalysis },
   { path: 'Item', component: ItemForm},
   { path: 'Transactions', component: TransactionsComponent},
-  //{ path: 'Inventory', component: Inventory},
+  { path: 'Inventory', component: InventoryComponent},
   { path: '**', component: NotFound }
 ];
