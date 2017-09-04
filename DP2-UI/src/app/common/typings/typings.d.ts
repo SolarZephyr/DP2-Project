@@ -15,3 +15,10 @@ export interface Sale{
     UnitPrice ?: number;
     AmtSold ?: number;
 }
+
+export interface Transaction{
+    ID: number;
+    EmployeeID ?: number;
+    Status ?: number;
+    Date ?: Date;
+}

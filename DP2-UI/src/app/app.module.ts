@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 //IMPORT PAGES
-import { SalesForm } from './sales/sales-form.component';
+import { NewTransactionForm } from './sales/new-transaction-form.component';
 import { ItemForm } from './item/item-form.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
-import { DisplaySales } from './sales/display-sales.component';
-import { Inventory } from './inventory/inventory.component';
+import { TransactionsComponent } from './sales/transaction-log.component';
+//import { Inventory } from './inventory/inventory.component';
 import { NotFound } from './common/notfound/not-found.component';
 
 import {HttpClientModule} from '@angular/common/http';
@@ -20,11 +20,11 @@ import { RouterModule, Routes } from '@angular/router';
   declarations: [
     AppComponent,
     //IMPORT PAGE COMPONENTS
-    SalesForm,
-    DisplaySales,
+    NewTransactionForm,
+    TransactionsComponent,
     DataAnalysis,
     ItemForm,
-    Inventory,
+    //Inventory,
     NotFound,
   ],
   imports: [
