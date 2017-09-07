@@ -18,8 +18,8 @@
       <td>{{product.Price}}</td>
       <td>{{product.Stock}}</td>
       <td>
-        <button class="mdl-button mdl-js-button mdl-button--raised">
-          Edit
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" (click)="edit(product.id)">
+          <i class="material-icons">create</i>
         </button>
       </td>
     </tr>
