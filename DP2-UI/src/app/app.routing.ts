@@ -14,6 +14,7 @@ export const appRoutes: Routes = [
   { path: 'Sales', component: NewTransactionForm },
   { path: 'Data', component: DataAnalysis },
   { path: 'Item', component: ItemForm},
+  { path: 'Item:ID', component: ItemForm},
   { path: 'Transactions', component: TransactionsComponent},
   { path: 'Inventory', component: InventoryComponent},
   { path: '**', component: NotFound }
