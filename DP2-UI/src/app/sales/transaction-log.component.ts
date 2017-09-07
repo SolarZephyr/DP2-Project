@@ -66,6 +66,11 @@ export class TransactionsComponent {
   }
 
   updateStatus(){
-   this.transactions.find(transaction => transaction.ID == this.selectedID).Status = 1;
+    if (this.transactions.find(transaction => transaction.ID == this.selectedID).Status == 0){
+      this.transactions.find(transaction => transaction.ID == this.selectedID).Status = 1;
+    } else {
+      this.transactions.find(transaction => transaction.ID == this.selectedID).Status = 0;
+    }
+   
   }
 }

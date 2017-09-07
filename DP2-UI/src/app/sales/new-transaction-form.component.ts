@@ -58,4 +58,8 @@ export class NewTransactionForm {
         break;
     }
   }
+  clear(){
+    this.newTransaction = [];
+    this.total = 0;
+  }
 }

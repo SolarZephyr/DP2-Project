@@ -1,19 +1,17 @@
 <div>
-
-    <select [(ngModel)]="toAdd.ProdID">
-        <ng-container *ngFor="let product of allProducts">
-        <option  value="{{product.ID}}">{{product.Name}}</option>
-        </ng-container>
-    </select>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  <select [(ngModel)]="toAdd.ProdID">
+    <ng-container *ngFor="let product of allProducts">
+      <option  value="{{product.ID}}">{{product.Name}}</option>
+    </ng-container>
+  </select>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <input class="mdl-textfield__input" type="number" id="amt" [(ngModel)]="toAdd.AmtSold">
     <label class="mdl-textfield__label" for="amt">Amount...</label>
   </div>
-    <div>
-        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Add Item" (click)="Save()">
-    </div>
-    
-    <br/>
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect" (click)="Save()">
+      <i class="material-icons">add</i>
+    </button>
+  <br/>
 </div>
 
 <br>
@@ -61,8 +59,8 @@
 </table>
 
 
- <div>
-        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Confirm" (click)="save(sale)"/>
-        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear" (click)="clear"/>
-        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel" (click)="back()">
-    </div>
+<div>
+  <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Confirm" (click)="save(sale)"/>
+  <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear" (click)="clear()"/>
+  <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel" (click)="back()">
+</div>
