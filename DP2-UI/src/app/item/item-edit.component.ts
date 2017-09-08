@@ -24,8 +24,8 @@ export class ItemEdit {
     //this.item = api.getProduct(routeParams.ID);
   }
 
-  save(item: Product) {
-    api.addProduct('/Item', item);
+  update(item: Product) {
+    //api.updateProduct('/Item', item);
   }
 
 }
