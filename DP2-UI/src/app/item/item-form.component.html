@@ -1,4 +1,9 @@
+<div *ngIf="editMode">
+    CURRENTLY IN EDIT MODE!
+</div>
+
 <div>
+    
     <form>
         <fieldset>
             <div class="mdl-textfield mdl-js-textfield">
@@ -31,7 +36,7 @@
             <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="save(item)"/>
         </a>
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear"/>
-        <a routerLink="/Inventory">
+        <a routerLink="/Inventory" *ngIf="editMode">
             <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel"/>
         </a>
     </form>

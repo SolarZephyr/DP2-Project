@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 //IMPORT PAGES
 import { NewTransactionForm } from './sales/new-transaction-form.component';
 import { ItemForm } from './item/item-form.component';
-import { ItemEdit } from './item/item-edit.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
 import { TransactionsComponent } from './sales/transaction-log.component';
 import { InventoryComponent } from './inventory/inventory.component';
@@ -28,7 +27,6 @@ import { RouterModule, Routes } from '@angular/router';
     ItemForm,
     InventoryComponent,
     NotFound,
-    ItemEdit
   ],
   imports: [
     BrowserModule,

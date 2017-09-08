@@ -43,6 +43,9 @@ export class NewTransactionForm {
       UnitPrice: this.toAdd.UnitPrice,
       AmtSold: this.toAdd.AmtSold
     };
+    if(temp.AmtSold == null)
+      temp.AmtSold = 1;
+
     this.tempSaleID++;
 
     this.newTransaction.push(temp);
