@@ -1,6 +1,7 @@
 <div>
-    <form action="" method="post">
+    <form>
         <fieldset>
+            <p ng-hide="item.id==''">ItemID: {{item.id}}</p>
             <div class="mdl-textfield mdl-js-textfield">
                 <input class="mdl-textfield__input" type="text" name="itmName" id="itmName" pattern="^[A-Za-z]{1,40}$" value="{{item.value}}"
                         ng-model="item.name"/>
@@ -26,9 +27,8 @@
                 <label for="itmQuatity" class="mdl-textfield__label">Quantity</label>
             </div>
         </fieldset>
-        <br/>
         <a routerLink="/Inventory">
-            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="save(item)"/>
+            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Confirm" (click)="update(item)">
         </a>
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear"/>
         <a routerLink="/Inventory">

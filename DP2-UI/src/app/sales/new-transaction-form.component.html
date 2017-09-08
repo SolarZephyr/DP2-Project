@@ -60,7 +60,11 @@
 
 
 <div>
-  <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Confirm" (click)="save(sale)"/>
+  <a routerLink="/Transactions">
+      <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Confirm" (click)="save(sale)"/>
+  </a>
   <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear" (click)="clear()"/>
-  <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel" (click)="back()">
+  <a routerLink="/Transactions">
+    <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel">
+  </a>
 </div>
