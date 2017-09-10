@@ -1,5 +1,5 @@
 <div *ngIf="editMode">
-    CURRENTLY IN EDIT MODE!
+[EDIT MODE]
 </div>
 
 <div>
@@ -7,27 +7,29 @@
     <form>
         <fieldset>
             <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" name="itmName" id="itmName" pattern="^[A-Za-z]{1,40}$" value="{{item.value}}"
-                        ng-model="item.name"/>
+                <input class="mdl-textfield__input" type="text" name="itmName" id="itmName" pattern="^[A-Za-z]{1,40}$"
+                        />
                 <label for="itmName" class="mdl-textfield__label">Item Name</label>
             </div>
             <div class="mdl-selectfield mdl-js-selectfield">
                 Type
-                <select name="itmType" id="itmType" ng-model="item.type" class="mdl-selectfield__select">
-                    <option value="">Please select a type</option>
-                    <option value="type" ng-repeat="type in types">{{type}}</option>
+                <select name="itmType" id="itmType" [(ngModel)]="selType" class="mdl-selectfield__select" >
+                    <option *ngFor="let type of types" 
+                        [value]="type.ID" >
+                    {{type.Description}}
+                    </option>
                 </select>
             </div>
         </fieldset>
         <fieldset>
             <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" name="itmPrice" id="itmPrice" value="{{item.price}}" pattern="^\d+\.\d{2}$"
-                ng-model="item.price"/>
+                <input class="mdl-textfield__input" type="text" name="itmPrice" id="itmPrice" pattern="^\d+\.\d{2}$"
+                />
                 <label for="itmPrice" class="mdl-textfield__label">Unit Price: 0.00</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield">
-                <input type="text" class="mdl-textfield__input" name="itmQuantity" id="itmQuantity" value="{{item.quanity}}" pattern="^[0-9]{1,}$"
-                 ng-model="item.quantity"/>
+                <input type="text" class="mdl-textfield__input" name="itmQuantity" id="itmQuantity" pattern="^[0-9]{1,}$"
+                />
                 <label for="itmQuatity" class="mdl-textfield__label">Quantity</label>
             </div>
         </fieldset>

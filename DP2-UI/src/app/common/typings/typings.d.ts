@@ -1,7 +1,7 @@
 export interface Product{
    ID ?: number;
    Name ?: string;
-   Type ?: string;
+   Type ?: number;
    Price ?: number;
    Stock ?: number;
 }
@@ -21,4 +21,9 @@ export interface Transaction{
     EmployeeID ?: number;
     Status ?: number;
     Date ?: Date;
+}
+
+export interface ProdType{
+    ID ?: number;
+    Description ?: string;
 }
