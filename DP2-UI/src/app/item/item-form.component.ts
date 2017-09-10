@@ -57,7 +57,7 @@ export class ItemForm {
 
 
   save(item: Product) {
-    api.addProduct('/Item', item);
+    alert("UNIMPLEMENTED");
   }
 
   ngOnInit() {
