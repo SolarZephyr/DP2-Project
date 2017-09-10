@@ -17,6 +17,6 @@ export class InventoryComponent {
     constructor(){
         this.products = [];
 
-        this.products.push({ID: 1, Name:"Product A", Type:"Medicine", Price:10.05, Stock:52}, {ID:2})
+        this.products.push({ID: 1, Name:"Product A", Type:"Medicine", Price:10.05, Stock:52}, {ID:2});
   }
 }

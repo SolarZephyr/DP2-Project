@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Product } from '../common/typings/typings.d';
 import { CRUDService } from '../common/services/crudservice';
-import { ActivatedRoute }     from '@angular/router';
+import { ActivatedRoute, ParamMap }     from '@angular/router';
 import {Observable} from 'rxjs/Observable';
+
 import 'rxjs/Rx';
 
 let api = new CRUDService(this);
@@ -19,6 +20,7 @@ let api = new CRUDService(this);
 export class ItemForm {
   title = 'item form';
   item:Observable<Product>;
+  items:Observable<Product[]>;
   itemID:number;
   editMode: Boolean = false;
   sub: any;
@@ -26,8 +28,11 @@ export class ItemForm {
 
   constructor(private route: ActivatedRoute) {
     this.itemID = null;
-    
-    //this.item = api.getProducts(this.routeParams.ID);
+    this.items = null;
+    //if (this.route.params.elementAt[0] != '') {
+      //this.items = api.getProducts();
+      //this.item = this.items[this.itemID];
+    //}
   }
 
   save(item: Product) {
