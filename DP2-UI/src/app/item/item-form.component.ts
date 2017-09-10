@@ -29,10 +29,10 @@ export class ItemForm {
   constructor(private route: ActivatedRoute) {
     this.itemID = null;
     this.items = null;
-    //if (this.route.params.elementAt[0] != '') {
-      //this.items = api.getProducts();
+    if (this.route.params.elementAt[0] != '') {
+      //this.items = api.getProducts('/Item:ID');
       //this.item = this.items[this.itemID];
-    //}
+    }
   }
 
   save(item: Product) {
