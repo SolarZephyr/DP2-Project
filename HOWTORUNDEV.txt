@@ -1,7 +1,0 @@
-0. Ensure mySQL Database is set up on machine
-1. Open two Visual Studio Code 
-2a. in one, open the /DP2_API folder
-2b. in the other, open the /DP2_UI folder
-3. Modify the "dbconnection.js" file in /DP2_API to match your mySQL settings
-4a. DP2_API is run via "npm start"
-4b. DP2_UI is run via "ng serve --open"
