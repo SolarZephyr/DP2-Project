@@ -7,9 +7,9 @@ var bodyParser = require('body-parser');
 var cors = require('cors');  
 var routes = require('./routes/index');  
 var users = require('./routes/users');  
-var Tasks = require('./routes/Tasks');  
-var AddProduct = require('./routes/AddProduct');
-var ProductInventory = require('./routes/ProductInventory');
+var Products = require('./routes/Products');  
+var Sales = require('./routes/Sales');
+var Transactions = require('./routes/Transactions');
 var app = express();  
 // view engine setup  
 app.set('views', path.join(__dirname, 'views'));  
@@ -26,9 +26,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));  
 app.use('/', routes);  
 app.use('/users', users);  
-app.use('/Tasks', Tasks);
-app.use('/AddProduct', AddProduct);
-app.use('/ProductInventory', ProductInventory);
+app.use('/Products', Products);
+app.use('/Transactions', Transactions);
+app.use('/Sales', Sales);
 // catch 404 and forward to error handler  
 app.use(function(req, res, next) {  
     var err = new Error('Not Found');  
