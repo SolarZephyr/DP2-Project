@@ -9,8 +9,8 @@ var Products = {
     addProduct: function(Product, callback) {  
         return db.query("Insert into product (name, type, price, stock) values(?,?,?,?)", [Product.name, Product.type, Product.price, Product.stock], callback);  
     },  
-    updateProduct: function(Product, callback) {  
-        return db.query("update product set name=?,type=?,price=?,stock=? where id=?", [Product.name, Product.type, Product.price, Product.stock, Product.id], callback);  
+    updateProduct: function(id, Product, callback) {  
+        return db.query("update product set name=?,type=?,price=?,stock=? where id=?", [Product.name, Product.type, Product.price, Product.stock, id], callback);  
     }  
 };  
 module.exports = Products; 
