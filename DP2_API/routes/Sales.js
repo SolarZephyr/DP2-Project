@@ -8,6 +8,7 @@ router.get('/:id?', function(req, res, next) {
         } else {  
             res.json(rows);  
         }  
+		});
 });  
 router.post('/', function(req, res, next) {  
     Sales.addSale(req.body, function(err, count) {  
