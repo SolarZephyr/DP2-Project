@@ -3,7 +3,7 @@ var router = express.Router();
 var Products = require('../models/Products');  
 router.get('/:id?', function(req, res, next) {   
 	if (req.params.id) {  
-		Products.getProductById(function(err, rows) {  
+		Products.getProductById(req.params.id, function(err, rows) {  
             if (err) {  
                 res.json(err);  
             } else {  

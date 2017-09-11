@@ -12,7 +12,7 @@ let api = new CRUDService(this);
 @Component({
   selector: 'item-form',
   templateUrl: './item-form.component.html',
-  providers:[]
+  providers:[CRUDService]
 })
 
 
@@ -20,71 +20,90 @@ let api = new CRUDService(this);
 export class ItemForm {
   title = 'item form';
   
-  selType: number;
-
   editMode: Boolean = false;
   sub: any;
   id: number = null;
 
-  products: Array<Product>; 
-  types: Array<ProdType>;
+  types: ProdType[];
+  currentProduct: Product;
 
 
-  constructor(private route: ActivatedRoute) {
-    //TEMP FAKE DB PROD
-    this.products = [];
-
-    this.products.push(
-          {ID: 1, Name:"Product A", Type:1, Price:10.05, Stock:52}, 
-          {ID: 2, Name:"Product B", Type:1, Price:11.25, Stock:12},
-          {ID: 3, Name:"Product C", Type:2, Price:40.55, Stock:15},
-          {ID: 4, Name:"Product D", Type:1, Price:2.05, Stock:2},
-          {ID: 5, Name:"Product E", Type:3, Price:0.25, Stock:23}
-      );
-
-    this.types = [];
-      this.types.push(
-          {ID: 1, Description:"Medicine"}, 
-          {ID: 2, Description:"Poison"}, 
-          {ID: 3, Description:"Misc."}, 
-          {ID: 4, Description:"??"}, 
-          {ID: 5, Description:"Something else"} 
-      );
-
+  constructor(private route: ActivatedRoute, private sv: CRUDService) {
    
-   
-  }
-
-
-  save(item: Product) {
-    alert("UNIMPLEMENTED");
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-       this.id = +params['ID']; // (+) converts string 'id' to a number
-    
+       this.id = +params['ID']; // (+) converts string 'id' to a number    
     });
+
+    this.LoadTypeData();
 
     if(!isNaN(this.id))
       this.editMode = true;
 
-    
+    this.currentProduct = {};
     if(this.editMode){
-      this.LoadData();
+      this.LoadProductData();
+
     }
 
   }
 
-  LoadData(){
-    (<HTMLInputElement>document.getElementById("itmName")).value = (this.products.find(x => x.ID == this.id)).Name;
+  LoadTypeData(){
+    this.sv.getAllTypes().subscribe(data => {
+      this.types = data;
+      },
+      err => {
+          console.log('we got an error:', err);
+          
+      });
+  }
 
-    (<HTMLInputElement>document.getElementById("itmPrice")).value = (this.products.find(x => x.ID == this.id)).Price.toString();
-    (<HTMLInputElement>document.getElementById("itmQuantity")).value = (this.products.find(x => x.ID == this.id)).Stock.toString();
-    
-    var _t;
-    _t = (this.products.find(x => x.ID == this.id)).Type;
-    this.selType = this.types.find(x => x.ID == _t).ID;
+  LoadProductData(){
+    this.sv.getProductByID(this.id).subscribe(data => {
+      this.currentProduct = data;
+      },
+      err => {
+          console.log('we got an error:', err);
+          
+      }, () =>{
+        this.FillForm();
+      });
+  }
+
+  FillForm(){
+    (<HTMLInputElement>document.getElementById("ProductName")).value = this.currentProduct.Name;
+    (<HTMLInputElement>document.getElementById("ProductType")).value = this.currentProduct.Type.toString();
+    (<HTMLInputElement>document.getElementById("ProductPrice")).value = this.currentProduct.Price.toString();
+    (<HTMLInputElement>document.getElementById("ProductStock")).value = this.currentProduct.Stock.toString();
+  }
+
+  SaveProduct(){
+    if(this.editMode)
+      this.sv.putProduct(this.id, this.generateProductFromForm()).subscribe(
+        res => res, 
+        err => {},
+        () => {
+            //after success
+            this.FillForm();
+        }
+        );
+    else{
+      this.sv.postProduct(this.generateProductFromForm());
+    }
+
+  }
+
+
+  generateProductFromForm(): Product{ 
+    var temp = {
+      Name: (<HTMLInputElement>document.getElementById("ProductName")).value,
+      Type: Number((<HTMLInputElement>document.getElementById("ProductType")).value),
+      Price: Number((<HTMLInputElement>document.getElementById("ProductPrice")).value),
+      Stock: Number((<HTMLInputElement>document.getElementById("ProductStock")).value)
+     };
+     return temp;
   }
 
   ngOnDestroy() {

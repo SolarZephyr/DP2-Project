@@ -7,7 +7,8 @@ var bodyParser = require('body-parser');
 var cors = require('cors');  
 var routes = require('./routes/index');  
 var users = require('./routes/users');  
-var Products = require('./routes/Products');  
+var Products = require('./routes/Products');
+var Types = require('./routes/Types');
 var Sales = require('./routes/Sales');
 var Transactions = require('./routes/Transactions');
 var app = express();  
@@ -29,6 +30,7 @@ app.use('/users', users);
 app.use('/Products', Products);
 app.use('/Transactions', Transactions);
 app.use('/Sales', Sales);
+app.use('/Types', Types);
 // catch 404 and forward to error handler  
 app.use(function(req, res, next) {  
     var err = new Error('Not Found');  
