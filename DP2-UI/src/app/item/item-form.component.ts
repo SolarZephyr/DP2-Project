@@ -26,7 +26,7 @@ export class ItemForm {
 
   types: ProdType[];
   currentProduct: Product;
-
+  newProduct: Product = {};
 
   constructor(private route: ActivatedRoute, private sv: CRUDService) {
    
@@ -80,30 +80,23 @@ export class ItemForm {
   }
 
   SaveProduct(){
-    if(this.editMode)
-      this.sv.putProduct(this.id, this.generateProductFromForm()).subscribe(
-        res => res, 
-        err => {},
-        () => {
-            //after success
-            this.FillForm();
-        }
-        );
+    this.generateProductFromForm();
+    if(this.editMode)  
+      this.sv.putProduct(this.id, this.newProduct);
     else{
-      this.sv.postProduct(this.generateProductFromForm());
+      this.sv.postProduct(this.newProduct);
     }
 
   }
 
 
-  generateProductFromForm(): Product{ 
-    var temp = {
-      Name: (<HTMLInputElement>document.getElementById("ProductName")).value,
-      Type: Number((<HTMLInputElement>document.getElementById("ProductType")).value),
-      Price: Number((<HTMLInputElement>document.getElementById("ProductPrice")).value),
-      Stock: Number((<HTMLInputElement>document.getElementById("ProductStock")).value)
-     };
-     return temp;
+  generateProductFromForm(){ 
+
+     this.newProduct.Name = (<HTMLInputElement>document.getElementById("ProductName")).value;
+     this.newProduct.Type = Number((<HTMLInputElement>document.getElementById("ProductType")).value);
+     this.newProduct.Price =  Number((<HTMLInputElement>document.getElementById("ProductPrice")).value);
+     this.newProduct.Stock =  Number((<HTMLInputElement>document.getElementById("ProductStock")).value);
+
   }
 
   ngOnDestroy() {

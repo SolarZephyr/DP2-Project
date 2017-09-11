@@ -34,8 +34,8 @@ export class CRUDService {
     this.http.post(this.baseURL + "/Products", JSON.stringify(data));
   }
 
-  putProduct(id: number, data:any): Observable<any>{
-    return this.http.put(this.baseURL + "/Products/" + id, JSON.stringify(data)).map(res => res);
+  putProduct(id: number, data:Product){
+    this.http.put(this.baseURL + "/Products/" + id, JSON.stringify(data));
   }
 
 }
