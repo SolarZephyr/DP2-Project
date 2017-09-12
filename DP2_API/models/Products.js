@@ -12,5 +12,8 @@ var Products = {
     updateProduct: function(id, Product, callback) {  
         return db.query("update product set name=?,type=?,price=?,stock=? where id=?", [Product.Name, Product.Type, Product.Price, Product.Stock, id], callback);  
     }  
+	updateProductIdBody: function(Product, callback) {  
+        return db.query("update product set name=?,type=?,price=?,stock=? where id=?", [Product.Name, Product.Type, Product.Price, Product.Stock, Product.Id], callback);  
+    }  
 };  
 module.exports = Products; 
