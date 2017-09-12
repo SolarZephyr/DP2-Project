@@ -7,10 +7,10 @@ var Products = {
         return db.query("select * from product where Id = ?", [id], callback);  
     },  
     addProduct: function(Product, callback) {  
-        return db.query("Insert into product (name, type, price, stock) values(?,?,?,?)", [Product.name, Product.type, Product.price, Product.stock], callback);  
+        return db.query("Insert into product (name, type, price, stock) values(?,?,?,?)", [Product.Name, Product.Type, Product.Price, Product.Stock], callback);  
     },  
     updateProduct: function(id, Product, callback) {  
-        return db.query("update product set name=?,type=?,price=?,stock=? where id=?", [Product.name, Product.type, Product.price, Product.stock, id], callback);  
+        return db.query("update product set name=?,type=?,price=?,stock=? where id=?", [Product.Name, Product.Type, Product.Price, Product.Stock, id], callback);  
     }  
 };  
 module.exports = Products; 
