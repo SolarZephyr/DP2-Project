@@ -84,18 +84,27 @@ export class ItemForm {
     if(this.editMode)  
       this.sv.putProduct(this.id, this.newProduct);
     else{
-      this.sv.postProduct(this.newProduct);
+      this.sv.postProduct(this.newProduct).subscribe(data => {
+        
+        },
+        err => {
+            console.log('we got an error:', err);
+            
+        }, () =>{
+          alert("POST SUCCESS!");
+        });
     }
 
   }
 
 
   generateProductFromForm(){ 
-
-     this.newProduct.Name = (<HTMLInputElement>document.getElementById("ProductName")).value;
-     this.newProduct.Type = Number((<HTMLInputElement>document.getElementById("ProductType")).value);
-     this.newProduct.Price =  Number((<HTMLInputElement>document.getElementById("ProductPrice")).value);
-     this.newProduct.Stock =  Number((<HTMLInputElement>document.getElementById("ProductStock")).value);
+    if(this.editMode)
+        this.newProduct.ID = this.id;
+    this.newProduct.Name = (<HTMLInputElement>document.getElementById("ProductName")).value;
+    this.newProduct.Type = Number((<HTMLInputElement>document.getElementById("ProductType")).value);
+    this.newProduct.Price =  Number((<HTMLInputElement>document.getElementById("ProductPrice")).value);
+    this.newProduct.Stock =  Number((<HTMLInputElement>document.getElementById("ProductStock")).value);
 
   }
 

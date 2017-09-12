@@ -30,12 +30,15 @@ export class CRUDService {
     return this.http.get(this.baseURL + "/Types").map(res => <ProdType[]>res );
   }
 
-  postProduct(data: any){
-    this.http.post(this.baseURL + "/Products", JSON.stringify(data));
+  postProduct(data: any): Observable<any> {
+    let h = new HttpHeaders({ 'Content-Type': 'application/json' });
+    
+    return this.http.post(this.baseURL + '/Products', JSON.stringify(data), {headers: h}).map(res => res );
   }
 
-  putProduct(id: number, data:Product){
-    this.http.put(this.baseURL + "/Products/" + id, JSON.stringify(data));
+  putProduct(id: number, data:any){
+    let h = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put(this.baseURL + "/Products/" + id, JSON.stringify(data), {headers:h});
   }
 
 }
