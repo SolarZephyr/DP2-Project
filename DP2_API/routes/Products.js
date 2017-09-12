@@ -36,8 +36,7 @@ router.put('/:id?', function(req, res, next) {
             res.json(err);  
         } else {  
             res.json(rows);  
-        }  
-    });  
+        }
 	} else {
 		Products.updateProductIdBody(req.body, function(err, rows)  {  
 			if (err) {  
@@ -46,6 +45,7 @@ router.put('/:id?', function(req, res, next) {
 				res.json(rows);  
 			}  
 		});  
-    }  
+    }
+    });  
 });  
 module.exports = router; 
