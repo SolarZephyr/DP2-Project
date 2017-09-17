@@ -11,7 +11,7 @@ let api = new CRUDService(this);
 
 @Component({
   selector: 'item-form',
-  templateUrl: './item-form.component.html',
+  templateUrl: './product-form.component.html',
   providers:[CRUDService]
 })
 

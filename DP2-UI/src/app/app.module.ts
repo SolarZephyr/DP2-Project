@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 
 //IMPORT PAGES
 import { NewTransactionForm } from './sales/new-transaction-form.component';
-import { ItemForm } from './item/item-form.component';
+import { ItemForm } from './products/product-form.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
 import { TransactionsComponent } from './sales/transaction-log.component';
-import { InventoryComponent } from './inventory/inventory.component';
+import { InventoryComponent } from './products/product-inventory.component';
 import { NotFound } from './common/notfound/not-found.component';
 
 import {HttpClientModule} from '@angular/common/http';

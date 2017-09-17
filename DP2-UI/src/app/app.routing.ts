@@ -1,7 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NewTransactionForm } from './sales/new-transaction-form.component';
-import { ItemForm } from './item/item-form.component';
-import { InventoryComponent } from './inventory/inventory.component';
+import { ItemForm } from './products/product-form.component';
+import { InventoryComponent } from './products/product-inventory.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
 import { NotFound } from './common/notfound/not-found.component';
 import { TransactionsComponent } from './sales/transaction-log.component';

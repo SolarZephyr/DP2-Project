@@ -5,7 +5,7 @@ import { CRUDService } from '../common/services/crudservice';
 
 @Component({
   selector: 'display-sales',
-  templateUrl: './inventory.component.html',
+  templateUrl: './product-inventory.component.html',
   providers:[CRUDService]
 })
 
