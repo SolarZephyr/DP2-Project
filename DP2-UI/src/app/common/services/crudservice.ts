@@ -36,9 +36,17 @@ export class CRUDService {
     return this.http.post(this.baseURL + '/Products', JSON.stringify(data), {headers: h}).map(res => res );
   }
 
-  putProduct(id: number, data:any){
+  /*putProduct(id: number, data:any){
     let h = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put(this.baseURL + "/Products/" + id, JSON.stringify(data), {headers:h});
-  }
+  }*/
+  
+  public putProduct(Id:string,data:any): Observable<any>{
+    return this.http.put(this.baseURL + "/Products/" + Id, data)
+    .map(response => response)
+    .catch( ( errorRes: Response ) => {
+        return Observable.throw( errorRes.json() );
+     });
+}
 
 }

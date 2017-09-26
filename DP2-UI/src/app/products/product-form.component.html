@@ -1,12 +1,19 @@
-<div *ngIf="editMode">
-[EDIT MODE]
-{{currentProduct | json}}
-{{newProduct | json}}
+<div *ngIf="false">
+    [EDIT MODE]
+    {{currentProduct | json}}
+    {{newProduct | json}}
+</div>
+
+<div *ngIf="editMode" >
+    <span class="mdl-chip mdl-chip--contact">
+        <span class="mdl-chip__contact mdl-color--deep_orange mdl-color-text--black">ID:</span>
+        <span class="mdl-chip__text" style="min-width:200px; text-align:right;">{{id}}</span>
+    </span>
 </div>
 
 <div>
     
-            <div class="mdl-textfield mdl-js-textfield">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" id="ProductName" ng-model="currentProduct.Name" type="text">
                 <label for="ProductName" class="mdl-textfield__label">Item Name</label>
             </div>
@@ -19,12 +26,12 @@
                     </option>
                 </select>
             </div>
-            <div class="mdl-textfield mdl-js-textfield">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" name="ProductPrice" id="ProductPrice" pattern="^\d+\.\d{2}$"
                 />
                 <label for="ProductPrice" class="mdl-textfield__label">Unit Price: 0.00</label>
             </div>
-            <div class="mdl-textfield mdl-js-textfield">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input type="text" class="mdl-textfield__input" name="ProductStock" id="ProductStock" pattern="^[0-9]{1,}$"
                 />
                 <label for="ProductStock" class="mdl-textfield__label">Quantity</label>

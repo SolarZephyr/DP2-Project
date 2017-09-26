@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 declare var componentHandler: any;
 @Component({
   selector: 'app-root',
@@ -6,13 +6,13 @@ declare var componentHandler: any;
 })
 export class AppComponent {
   title = 'app';
-  constructor(){
+  constructor(private element: ElementRef){
   
   }
   ngAfterViewInit() {
-        componentHandler.upgradeAllRegistered();
-    }
-      
+    componentHandler.upgradeAllRegistered();
+  }
+  
   getTheData(id: string){
     alert(id);
   }

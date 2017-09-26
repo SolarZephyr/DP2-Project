@@ -3,7 +3,7 @@ import { Product, ProdType } from '../common/typings/typings.d';
 import { CRUDService } from '../common/services/crudservice';
 import { ActivatedRoute, ParamMap }     from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-
+declare var componentHandler: any;
 import 'rxjs/Rx';
 
 let api = new CRUDService(this);
@@ -31,8 +31,16 @@ export class ItemForm {
   constructor(private route: ActivatedRoute, private sv: CRUDService) {
    
   }
+  public MDLtxtFieldsCheckDirty(){
+    var nodeList = document.querySelectorAll('.mdl-textfield'); //for all
+    Array.prototype.forEach.call(nodeList, function (elem) {
+        if(elem.MaterialTextfield != null)
+            elem.MaterialTextfield.checkDirty();   
+    });
+}
 
   ngOnInit() {
+    
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['ID']; // (+) converts string 'id' to a number    
     });
@@ -78,11 +86,23 @@ export class ItemForm {
     (<HTMLInputElement>document.getElementById("ProductPrice")).value = this.currentProduct.Price.toString();
     (<HTMLInputElement>document.getElementById("ProductStock")).value = this.currentProduct.Stock.toString();
   }
+  ngAfterViewInit() {
+    componentHandler.upgradeAllRegistered();
+  }
 
+  ngAfterContentChecked(){
+    this.MDLtxtFieldsCheckDirty();
+  }
+  
   SaveProduct(){
     this.generateProductFromForm();
-    if(this.editMode)  
-      this.sv.putProduct(this.id, this.newProduct);
+    if(this.editMode){ 
+      this.sv.putProduct(this.id.toString(), this.newProduct).subscribe(
+        () => {},
+      err => {console.log("failure")}, //if error
+      () => {console.log("success")}); //if success
+      
+    }
     else{
       this.sv.postProduct(this.newProduct).subscribe(data => {
         
