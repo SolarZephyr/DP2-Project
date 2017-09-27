@@ -83,7 +83,9 @@ export class EmployeeForm {
     (<HTMLInputElement>document.getElementById("EmployeeLastName")).value = this.currentEmployee.LastName;
     (<HTMLInputElement>document.getElementById("EmployeeSalary")).value = this.currentEmployee.Salary.toString();
     (<HTMLInputElement>document.getElementById("EmployeePosition")).value = this.currentEmployee.Position;
-    (<HTMLInputElement>document.getElementById("EmployeeAdress")).value = this.currentEmployee.Address;
+    (<HTMLInputElement>document.getElementById("EmployeeHomeBSB")).value = this.currentEmployee.BSB;
+    (<HTMLInputElement>document.getElementById("EmployeeAccount")).value = this.currentEmployee.AccountNo;
+    (<HTMLInputElement>document.getElementById("EmployeeAddress")).value = this.currentEmployee.Address;
     (<HTMLInputElement>document.getElementById("EmployeeCity")).value = this.currentEmployee.City;
     (<HTMLInputElement>document.getElementById("EmployeePostcode")).value = this.currentEmployee.Postcode.toString();
     (<HTMLInputElement>document.getElementById("EmployeeHomePhone")).value = this.currentEmployee.HomePhone;
@@ -128,6 +130,8 @@ export class EmployeeForm {
     this.newEmployee.LastName = ((<HTMLInputElement>document.getElementById("EmployeeLastName")).value);
     this.newEmployee.Salary =  Number((<HTMLInputElement>document.getElementById("EmployeeSalary")).value);
     this.newEmployee.Position =  ((<HTMLInputElement>document.getElementById("EmployeePosition")).value);
+    this.newEmployee.BSB =  ((<HTMLInputElement>document.getElementById("EmployeeBSB")).value);
+    this.newEmployee.AccountNo =  ((<HTMLInputElement>document.getElementById("EmployeeAccountNo")).value);
     this.newEmployee.Address =  ((<HTMLInputElement>document.getElementById("EmployeeAddress")).value);
     this.newEmployee.City =  ((<HTMLInputElement>document.getElementById("EmployeeCity")).value);
     this.newEmployee.Postcode =  Number((<HTMLInputElement>document.getElementById("EmployeePostcode")).value);

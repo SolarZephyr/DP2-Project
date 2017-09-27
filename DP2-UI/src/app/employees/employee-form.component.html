@@ -42,6 +42,15 @@
                 </select>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" name="EmployeeBSB" id="EmployeeBSB" pattern="^[0-9 ]{1,}$" />
+                <label for="EmployeeBSB" class="mdl-textfield__label">BSB</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" name="EmployeeAccountNo" id="EmployeeAccountNo" pattern="^[0-9 ]{1,}$" />
+                <label for="EmployeeAccountNo" class="mdl-textfield__label">Account No.</label>
+            </div>
+            <br/>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" name="EmployeeAddress" id="EmployeeAddress" pattern="^[0-9]{1,}[A-Za-z]{1,}$" />
                 <label for="EmployeeAddress" class="mdl-textfield__label">Address</label>
             </div>
@@ -66,7 +75,7 @@
         <br/>
         
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="SaveEmployee()"/>
-        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear"/>
+        <input class="mdl-button mdxxxxxxxxxl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear"/>
         <a routerLink="/DisplayEmployee">
             <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel"/>
         </a>

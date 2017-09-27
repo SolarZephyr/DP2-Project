@@ -39,6 +39,8 @@ export interface Employee{
     LastName ?: string;
     Salary ?: number;
     Position ?: string;
+    BSB ?: string;
+    AccountNo ?: string;
     Address ?: string;
     City ?: string;
     Postcode ?: number;
