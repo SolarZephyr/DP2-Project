@@ -11,6 +11,7 @@ import { DataAnalysis } from './data-analysis/data-analysis.component';
 import { TransactionsComponent } from './sales/transaction-log.component';
 import { InventoryComponent } from './products/product-inventory.component';
 import { NotFound } from './common/notfound/not-found.component';
+import { EmployeeForm } from './employees/employee-form.component';
 
 import {HttpClientModule} from '@angular/common/http';
 
@@ -26,6 +27,7 @@ import { RouterModule, Routes } from '@angular/router';
     DataAnalysis,
     ItemForm,
     InventoryComponent,
+    EmployeeForm,
     NotFound,
   ],
   imports: [

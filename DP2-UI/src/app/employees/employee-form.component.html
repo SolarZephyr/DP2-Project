@@ -1,0 +1,74 @@
+<div *ngIf="false">
+    [EDIT MODE]
+    {{currentEmployee | json}}
+    {{newEmployee | json}}
+</div>
+
+<div *ngIf="editMode" >
+    <span class="mdl-chip mdl-chip--contact">
+        <span class="mdl-chip__contact mdl-color--deep_orange mdl-color-text--black">ID:</span>
+        <span class="mdl-chip__text" style="min-width:200px; text-align:right;">{{id}}</span>
+    </span>
+</div>
+
+<div *ngIf="editMode" >
+    <span class="mdl-chip mdl-chip--contact">
+        <span class="mdl-chip__contact mdl-color--deep_orange mdl-color-text--black">ID:</span>
+        <span class="mdl-chip__text" style="min-width:200px; text-align:right;">{{id}}</span>
+    </span>
+</div>
+
+<div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" id="EmployeeFirstName" ng-model="currentEmployee.FirstName" type="text"/>
+                <label for="EmployeeFirstName" class="mdl-textfield__label">First Name</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" id="EmployeeLastName" ng-model="currentEmployee.LastName" type="text"/>
+                <label for="EmployeeLastName" class="mdl-textfield__label">Last Name</label>
+            </div>
+            <br/>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" id="EmployeeLastSalary" ng-model="currentEmployee.Salary" type="text" pattern="^\d+\.\d{8,}$"/>
+                <label for="EmployeeSalary" class="mdl-textfield__label">Salary</label>
+            </div>
+            <div class="mdl-selectfield mdl-js-selectfield">
+                Type
+                <select name="EmployeePositon" id="EmployeePosition" class="mdl-selectfield__select">
+                    <option *ngFor="let position of positions" 
+                        [value]="position.ID" >
+                        {{position.Description}}
+                    </option>
+                </select>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" name="EmployeeAddress" id="EmployeeAddress" pattern="^[0-9]{1,}[A-Za-z]{1,}$" />
+                <label for="EmployeeAddress" class="mdl-textfield__label">Address</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input type="text" class="mdl-textfield__input" name="EmployeeCity" id="EmployeeCity" />
+                <label for="EmployeeCity" class="mdl-textfield__label">City</label>
+            </div> 
+            <br/>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input type="text" class="mdl-textfield__input" name="EmployeePostcode" id="EmployeePostcode" pattern="^[3000-3996]$" />
+                <label for="EmployeePostcode" class="mdl-textfield__label">Postcode</label>
+            </div>
+            <br/>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input type="text" class="mdl-textfield__input" name="EmployeeHomePhone" id="EmployeeHomePhone"/>
+                <label for="EmployeePhone" class="mdl-textfield__label">Home Phone</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input type="text" class="mdl-textfield__input" name="EmployeeMobile" id="EmployeeMobile"/>
+                <label for="EmployeeMobile" class="mdl-textfield__label">Mobile</label>
+            </div>
+        <br/>
+        
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="SaveEmployee()"/>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear"/>
+        <a routerLink="/DisplayEmployee">
+            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel"/>
+        </a>
+ 
+</div>

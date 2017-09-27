@@ -5,6 +5,7 @@ import { InventoryComponent } from './products/product-inventory.component';
 import { DataAnalysis } from './data-analysis/data-analysis.component';
 import { NotFound } from './common/notfound/not-found.component';
 import { TransactionsComponent } from './sales/transaction-log.component';
+import { EmployeeForm } from './employees/employee-form.component';
 
 export const appRoutes: Routes = [
   { path: '',
@@ -17,5 +18,7 @@ export const appRoutes: Routes = [
   { path: 'Item/:ID', component: ItemForm},
   { path: 'Transactions', component: TransactionsComponent},
   { path: 'Inventory', component: InventoryComponent},
+  { path: 'EmployeeForm', component: EmployeeForm},
+  { path: 'EmployeeForm/:ID', component: EmployeeForm},
   { path: '**', component: NotFound }
 ];

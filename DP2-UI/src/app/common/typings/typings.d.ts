@@ -27,3 +27,21 @@ export interface ProdType{
     ID ?: number;
     Description ?: string;
 }
+
+export interface Position {
+    ID ?: number;
+    Description ?: string;
+}
+
+export interface Employee{
+    ID ?: number;
+    FirstName ?: string;
+    LastName ?: string;
+    Salary ?: number;
+    Position ?: string;
+    Address ?: string;
+    City ?: string;
+    Postcode ?: number;
+    HomePhone ?: string;
+    Mobile ?: string;
+}
