@@ -6,6 +6,7 @@ import { DataAnalysis } from './data-analysis/data-analysis.component';
 import { NotFound } from './common/notfound/not-found.component';
 import { TransactionsComponent } from './sales/transaction-log.component';
 import { EmployeeForm } from './employees/employee-form.component';
+import { ShowEmployeesComponent } from './employees/show-employees.component';
 
 export const appRoutes: Routes = [
   { path: '',
@@ -20,5 +21,6 @@ export const appRoutes: Routes = [
   { path: 'Inventory', component: InventoryComponent},
   { path: 'EmployeeForm', component: EmployeeForm},
   { path: 'EmployeeForm/:ID', component: EmployeeForm},
+  { path: 'Employees', component:ShowEmployeesComponent},
   { path: '**', component: NotFound }
 ];

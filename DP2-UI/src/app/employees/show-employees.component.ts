@@ -1,36 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, ProdType } from '../common/typings/typings.d';
+import { Employee, Position } from '../common/typings/typings.d';
 import { CRUDService } from '../common/services/crudservice';
 
 
 @Component({
-  selector: 'display-sales',
-  templateUrl: './product-inventory.component.html',
+  selector: 'show-employees',
+  templateUrl: './show-employees.component.html',
   providers:[CRUDService]
 })
 
-
-
-export class InventoryComponent implements OnInit{
-  products: Array<Product>;
-  types: Array<ProdType>;
+export class ShowEmployeesComponent implements OnInit{
+  employees: Array<Employee>;
+  positions: Array<Position>;
 
   constructor(private sv: CRUDService){
-    this.products = [];
+    this.employees = [];
   }
 
   ngOnInit(){
-    this.LoadAllProducts();
+    this.LoadAllEmployees();
   }
 
-  LoadAllProducts(){
-    this.sv.getProducts().subscribe(data => {
-            this.products = data;
+  LoadAllEmployees(){
+    /*this.sv.getEmployees().subscribe(data => {
+            this.employees = data;
             },
             err => {
                 console.log('we got an error:', err);
                 
-            });
+            });*/
   }
 
 
