@@ -1,3 +1,32 @@
-<div>
-    THIS WILL BE DATA ANALYSIS
+<h2>Data Analysis</h2>
+<div class="mdl-grid">
+    <div class="mdl-cell--cell-12">
+        <label for="EmployeeSales">
+            <input type="radio" name="DataAnalysis" id="EmployeeSales" routerLink="/DataAnalysis/EmployeeSales" routerLinkActive="active"/> Employee Sales
+        </label>
+        <label for="SalesPrediction">
+            <input type="radio" name="DataAnalysis" id="SalesPrediction" routerLink="/DataAnalysis/MonthlySales" routerLinkActive="active"/> Sales Prediction
+        </label>
+        <label for="NeededStock">
+            <input type="radio" name="DataAnalysis" id="NeededStock" routerLink="/DataAnalysis/NeededStock" routerLinkActive="active"/> Needed Stock
+        </label>
+        <label for="Monthly Sales">
+            <input type="radio" name="DataAnalysis" id="MonthlySales" routerLink="/DataAnalysis/SalesPrediction" routerLinkActive="active"/> Monthly Sales
+        </label>
+        <div class="mdl-selectfield mdl-js-selectfield">
+            EmployeeID
+            <select name="EmployeeID" id="EmployeeID" class="mdl-selectfield__select">
+                <option *ngFor="let employee of employees" 
+                    [value]="employee.ID" >
+                    {{employee.ID}}
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+        <router-outlet></router-outlet>
+    </div>
 </div>

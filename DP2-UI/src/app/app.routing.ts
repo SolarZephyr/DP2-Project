@@ -22,5 +22,6 @@ export const appRoutes: Routes = [
   { path: 'EmployeeForm', component: EmployeeForm},
   { path: 'EmployeeForm/:ID', component: EmployeeForm},
   { path: 'Employees', component:ShowEmployeesComponent},
+  { path: 'DataAnalysis', component:DataAnalysis},
   { path: '**', component: NotFound }
 ];
