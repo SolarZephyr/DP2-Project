@@ -1,3 +1,8 @@
+export interface Login{
+    ID ?: number;
+    Password ?: string;
+}
+
 export interface Product{
    ID ?: number;
    Name ?: string;

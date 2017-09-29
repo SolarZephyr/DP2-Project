@@ -15,6 +15,22 @@
         <a class="mdl-navigation__link" routerLink="/Sales" routerLinkActive="active">ENTRY FORM</a>
         <a class="mdl-navigation__link" routerLink="/Data" routerLinkActive="active">DATA ANALYSIS</a>
       </nav> -->
+      <div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input type="text" name="empID" id="empID" ng-model="login.empID" class="mdl-textfield__input mdl-color-text--white"/>
+          <label for="empID" class="mdl-textfield__label">Employee ID</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input type="password" name="pwd" id="pwd" ng-model="login.pwd" class="mdl-textfield__input mdl-color-text--white"/>
+          <label for="pwd" class="mdl-textfield__label">Password</label>
+        </div>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="button" value="Login" (click)="logIn(login)"/>
+        <span class="mdl-chip mdl-chip--contact">
+            <span class="mdl-chip__contact mdl-color--deep_orange mdl-color-text--black">ID:</span>
+            <span class="mdl-chip__text" style="min-width:200px; text-align:right;">{{login.ID}}</span>
+        </span>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="button" value="Log Out" (click)="logOut"/>
+      </div>
     </div>
   </header>
   <div class="mdl-layout__drawer">
