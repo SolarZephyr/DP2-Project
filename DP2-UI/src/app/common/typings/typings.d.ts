@@ -11,6 +11,15 @@ export interface Product{
    Stock ?: number;
 }
 
+export interface PredictedSales{
+    ID ?: number;
+    Name ?: string;
+    Type ?: number;
+    Price ?: number;
+    Stock ?: number;
+    PredictedAmountSold ?: number;
+ }
+
 export interface Sale{
     ID ?: number;
     TransID ?: number;

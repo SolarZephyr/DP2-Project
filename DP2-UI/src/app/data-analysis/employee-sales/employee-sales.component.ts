@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Employee } from '../../common/typings/typings.d';
 
 @Component({
   selector: 'employee-sales',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
 
 export class EmployeeSales {
   title = 'Employee Sales';
-  
+  employees: Employee[];
 }

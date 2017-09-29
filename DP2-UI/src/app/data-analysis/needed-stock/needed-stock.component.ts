@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from '../../common/typings/typings.d';
 
 @Component({
   selector: 'needed-stock',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 
 export class NeededStock {
   title = 'Needed Stock';
+  neededstock : Product[];
 }

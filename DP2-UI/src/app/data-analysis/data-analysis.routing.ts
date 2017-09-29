@@ -9,5 +9,8 @@ export const analysisRoutes: Routes = [
     redirectTo: 'EmployeeSales',
     pathMatch: 'full'
   },
-  { path: 'DataAnalysis/EmployeeSales', component:EmployeeSales}
+  { path: 'DataAnalysis/EmployeeSales', component:EmployeeSales},
+  { path: 'DataAnalysis/SalesPrediction', component:SalesPrediction},
+  { path: 'DataAnalysis/NeededStock', component:NeededStock},
+  { path: 'DataAnalysis/MonthlySales', component:MonthlySales}
 ];
