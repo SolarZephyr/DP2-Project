@@ -7,12 +7,14 @@ import { NotFound } from './common/notfound/not-found.component';
 import { TransactionsComponent } from './sales/transaction-log.component';
 import { EmployeeForm } from './employees/employee-form.component';
 import { ShowEmployeesComponent } from './employees/show-employees.component';
+import { DefaultPage } from './default-page/default-page.component'
 
 export const appRoutes: Routes = [
   { path: '',
-    redirectTo: 'Sales',
+    redirectTo: 'DefaultPage',
     pathMatch: 'full'
   },
+  { path: 'DefaultPage', component: DefaultPage},
   { path: 'Sales', component: NewTransactionForm },
   { path: 'Data', component: DataAnalysis },
   { path: 'Item', component: ItemForm},
