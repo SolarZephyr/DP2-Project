@@ -17,7 +17,8 @@ import { SalesPrediction } from './data-analysis/sales-prediction/sales-predicti
 import { NotFound } from './common/notfound/not-found.component';
 import { EmployeeForm } from './employees/employee-form.component';
 import { ShowEmployeesComponent } from './employees/show-employees.component';
-import { DefaultPage } from './default-page/default-page.component'
+import { DefaultPage } from './default-page/default-page.component';
+
 
 import {HttpClientModule} from '@angular/common/http';
 
@@ -41,6 +42,10 @@ import { RouterModule, Routes } from '@angular/router';
     EmployeeForm,
     ShowEmployeesComponent,
     NotFound,
+    EmployeeSales,
+    SalesPrediction,
+    MonthlySales,
+    NeededStock
   ],
   imports: [
     BrowserModule,
