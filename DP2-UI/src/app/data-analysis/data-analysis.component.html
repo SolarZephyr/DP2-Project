@@ -2,16 +2,20 @@
 <div class="mdl-grid">
     <div class="mdl-cell--cell-12">
         <label for="EmployeeSales">
-            <input type="radio" name="DataAnalysis" id="EmployeeSales" routerLink="/DataAnalysis/EmployeeSales" routerLinkActive="active"/> Employee Sales
+            <input type="radio" name="DataAnalysis" id="EmployeeSales"
+            ng-model="analysis" value="EmployeeSales" checked/> Employee Sales
         </label>
         <label for="SalesPrediction">
-            <input type="radio" name="DataAnalysis" id="SalesPrediction" routerLink="/DataAnalysis/MonthlySales" routerLinkActive="active"/> Sales Prediction
+            <input type="radio" name="DataAnalysis" id="SalesPrediction" 
+            ng-model="analysis" value="MonthlySales"/> Sales Prediction
         </label>
         <label for="NeededStock">
-            <input type="radio" name="DataAnalysis" id="NeededStock" routerLink="/DataAnalysis/NeededStock" routerLinkActive="active"/> Needed Stock
+            <input type="radio" name="DataAnalysis" id="NeededStock"
+            ng-model="analysis" value="NeededSales"/> Needed Stock
         </label>
         <label for="Monthly Sales">
-            <input type="radio" name="DataAnalysis" id="MonthlySales" routerLink="/DataAnalysis/SalesPrediction" routerLinkActive="active"/> Monthly Sales
+            <input type="radio" name="DataAnalysis" id="MonthlySales" 
+            ng-model="analysis" value="SalesPrediction"/> Monthly Sales
         </label>
         <div class="mdl-selectfield mdl-js-selectfield">
             EmployeeID
@@ -27,6 +31,17 @@
 
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
-        <router-outlet></router-outlet>
+        <div *ngIf="analysis == MonthlySales">
+            <monthly-sales></monthly-sales>
+        </div>
+        <div *ngIf="analysis == EmployeeSales">
+            <employee-sales></employee-sales>
+        </div>
+        <div *ngIf="analysis == NeededStock">
+            <needed-stock></needed-stock>
+        </div>
+        <div *ngIf="analysis == SalesPrediction">
+            <sales-prediction></sales-prediction>
+        </div>
     </div>
 </div>

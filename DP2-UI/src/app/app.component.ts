@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
-//import { Login } from './common/typings/typings.d';
+import { Login } from './common/typings/typings.d';
 declare var componentHandler: any;
 @Component({
   selector: 'app-root',
@@ -7,9 +7,8 @@ declare var componentHandler: any;
 })
 export class AppComponent {
   title = 'app';
- // login: Login;
+  login: Login = {};
   constructor(private element: ElementRef){
-  
   }
   ngAfterViewInit() {
     componentHandler.upgradeAllRegistered();

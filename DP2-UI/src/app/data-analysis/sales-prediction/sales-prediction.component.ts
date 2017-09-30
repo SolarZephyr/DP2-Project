@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//import { PredictedSales } from '../../common/typings/typings.d';
+import { PredictedSales } from '../../common/typings/typings.d';
 
 @Component({
   selector: 'sales-prediction',
@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
 
 export class SalesPrediction {
   title = 'Sales Prediction';
-  //predictions : PredictedSales[];
+  predictions : Array<PredictedSales>;
+  constructor() {
+    this.predictions = [];
+  }
 }

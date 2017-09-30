@@ -19,30 +19,4 @@
                         </tbody>
                 </table>
         </div>
-        <div class="mdl-cell mdl-cell--6-col">
-                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                        <thead>
-                                <tr>
-                                        <th class="mdl-data-table__cell--non-numeric">ID</th>
-                                        <th class="mdl-data-table__cell--non-numeric">ProdID</th>
-                                        <th class="mdl-data-table__cell--non-numeric">TransID</th>
-                                        <th class="mdl-data-table__cell--non-numeric">Product Name</th>
-                                        <th class="mdl-data-table__cell--non-numeric">Type</th>
-                                        <th class="mdl-data-table__cell--non-numeric">Amount Sold</th>
-                                </tr>
-                        </thead>
-                        <tbody>
-                                <ng-container *ngFor="let sale of sales">
-                                        <tr *ngIf="sale.TransID == selectedID">
-                                            <td>{{sale.ID}}</td>
-                                            <td>{{sale.ProdID}}</td>
-                                            <td>{{sale.TransID}}</td>
-                                            <td>{{sale.ProdName}}</td>
-                                            <td>{{sale.ProdType}}</td>
-                                            <td>{{sale.AmtSold}}</td>
-                                          </tr>
-                                </ng-container>
-                        </tbody>
-                </table>
-        </div>
 </div>

@@ -6,7 +6,13 @@ import { Transaction } from '../../common/typings/typings.d'
   templateUrl: './monthly-sales.component.html'
 })
 
+
+
 export class MonthlySales {
   title = 'Monthly Sales';
-  transactions : Transaction[];
+  transactions : Array<Transaction>;
+
+  constructor() {
+    this.transactions = [];
+  }
 }

@@ -8,10 +8,6 @@ import { TransactionsComponent } from './sales/transaction-log.component';
 import { EmployeeForm } from './employees/employee-form.component';
 import { ShowEmployeesComponent } from './employees/show-employees.component';
 import { DefaultPage } from './default-page/default-page.component';
-import { EmployeeSales } from './data-analysis/employee-sales/employee-sales.component';
-import { MonthlySales } from './data-analysis/monthly-sales/monthly-sales.component';
-import { NeededStock } from './data-analysis/needed-stock/needed-stock.component';
-import { SalesPrediction } from './data-analysis/sales-prediction/sales-prediction.component';
 
 export const appRoutes: Routes = [
   { path: '',
@@ -28,10 +24,6 @@ export const appRoutes: Routes = [
   { path: 'EmployeeForm', component: EmployeeForm},
   { path: 'EmployeeForm/:ID', component: EmployeeForm},
   { path: 'Employees', component:ShowEmployeesComponent},
-  { path: 'DataAnalysis', component:DataAnalysis, redirectTo: 'DataAnalysis/EmployeeSales'},
-  { path: '**', component: NotFound },
-  { path: 'DataAnalysis/EmployeeSales', component:EmployeeSales},
-  { path: 'DataAnalysis/SalesPrediction', component:SalesPrediction},
-  { path: 'DataAnalysis/NeededStock', component:NeededStock},
-  { path: 'DataAnalysis/MonthlySales', component:MonthlySales}
+  { path: 'DataAnalysis', component:DataAnalysis},
+
 ];
