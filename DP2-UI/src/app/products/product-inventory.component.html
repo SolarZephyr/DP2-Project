@@ -1,4 +1,4 @@
-
+<h2>Inventory</h2>
 <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
   <thead>
     <tr>
@@ -15,7 +15,7 @@
       <td>{{product.ID}}</td>
       <td>{{product.Name}}</td>
       <td>{{product.Type}}</td>
-      <td>{{product.Price}}</td>
+      <td>{{product.Price | currency: "AUD" : 2 }}</td>
       <td>{{product.Stock}}</td>
       <td>
        <a routerLink="/Item/{{product.ID}}"> 

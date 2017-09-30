@@ -16,7 +16,7 @@
                                         <td>{{prediction.ProductID}}</td>
                                         <td>{{prediction.Name}}</td>
                                         <td>{{prediction.Type}}</td>
-                                        <td>{{prediction.Price}}</td>
+                                        <td>{{prediction.Price | currency : "AUD" : 2}}</td>
                                         <td>{{prediction.Stock}}</td>
                                         <td>{{prediction.PredictedAmountSold}}</td>
                                 </tr>

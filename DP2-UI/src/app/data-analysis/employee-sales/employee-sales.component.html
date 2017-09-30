@@ -14,7 +14,7 @@
                         <td>{{employeeSale.TransactionID}}</td>
                         <td>{{employeeSale.FirstName}}</td>
                         <td>{{employeeSale.LastName}}</td>
-                        <td>{{employeeSale.Total}}</td>
+                        <td>{{employeeSale.Total | currency : "AUD" : 2}}</td>
                         <td>
                       </tr>
                     </tbody>

@@ -15,7 +15,7 @@
                                         <td>{{needed.ProductID}}</td>
                                         <td>{{needed.Name}}</td>
                                         <td>{{needed.Type}}</td>
-                                        <td>{{needed.Price}}</td>
+                                        <td>{{needed.Price | currency : "AUD" : 2}}</td>
                                         <td>{{needed.Stock}}</td>
                                 </tr>
                         </tbody>
