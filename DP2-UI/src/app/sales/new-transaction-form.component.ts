@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Sale, Product } from '../common/typings/typings.d';
-
+import { CRUDService } from '../common/services/crudservice';
 @Component({
   selector: 'sales-form',
   templateUrl: './new-transaction-form.component.html',
-  
+  providers:[CRUDService]
 })
 
-export class NewTransactionForm {
+export class NewTransactionForm  implements OnInit{
   title = 'sales form';
   transaction_id: number;
   allProducts: Array<Product>;
@@ -16,29 +16,36 @@ export class NewTransactionForm {
   total: number = 0;
   tempSaleID: number = 0;
 
-  constructor(){
+  constructor(private sv: CRUDService){
     this.transaction_id = 0;
     
     //this.allProducts = CRUDService.getAllProducts();
     this.allProducts = [];
     this.newTransaction = [];
     this.toAdd = {};
-    this.allProducts.push(
-          {ID: 1, Name:"Product A", Type:1, Price:10.05, Stock:52}, 
-          {ID: 2, Name:"Product B", Type:1, Price:11.25, Stock:12},
-          {ID: 3, Name:"Product C", Type:2, Price:40.55, Stock:15},
-          {ID: 4, Name:"Product D", Type:1, Price:2.05, Stock:2},
-          {ID: 5, Name:"Product E", Type:3, Price:0.25, Stock:23}
-      );
     this.newTransaction = [];
   }
 
-  Save(){
+  ngOnInit(){
+    this.LoadAllProducts();
+  }
+
+  LoadAllProducts(){
+    this.sv.getProducts().subscribe(data => {
+            this.allProducts = data;
+            },
+            err => {
+                console.log('we got an error:', err);
+                
+            });
+  }
+
+  addSale(){
     this.toAdd.TransID = this.transaction_id;
     this.toAdd.UnitPrice =  this.allProducts.find(product => product.ID == this.toAdd.ProdID).Price;
     const temp: Sale = {
       ID: this.tempSaleID,
-      TransID: this.transaction_id,
+      TransID: null,
       ProdID: this.toAdd.ProdID,
       UnitPrice: this.toAdd.UnitPrice,
       AmtSold: this.toAdd.AmtSold
@@ -64,5 +71,47 @@ export class NewTransactionForm {
   clear(){
     this.newTransaction = [];
     this.total = 0;
+  }
+
+
+  postSales(tID: number){
+  
+
+    //Then, post each sale
+    for(var i = 0; i< this.newTransaction.length; i++){
+      //First set all sale IDs to be tID
+      this.newTransaction[i].TransID = tID;
+      //then post
+      this.sv.postSale(this.newTransaction[i]).subscribe( 
+        data => {},
+        err => console.log("There was an error:",err)
+      );
+    }
+  }
+
+
+  saveTransaction(){
+    var tempEmp = {"EmployeeID":1};
+    var maxT;
+    this.sv.newTransaction(tempEmp).subscribe(
+      () => {},
+      err => {},
+      () => {
+        //new Transaction was successfully made.
+        //Get the ID
+        this.sv.getMaxTransaction().subscribe(
+          data => {
+            maxT = data;
+            },
+          err => {},
+          () => {
+            //successfully got the max transaction no.
+
+            //Now post sales.
+            this.postSales(maxT);
+          }
+        )
+      }
+    );
   }
 }
