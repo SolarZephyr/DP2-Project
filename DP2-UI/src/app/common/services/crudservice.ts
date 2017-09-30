@@ -36,17 +36,31 @@ export class CRUDService {
     return this.http.post(this.baseURL + '/Products', JSON.stringify(data), {headers: h}).map(res => res );
   }
 
-  /*putProduct(id: number, data:any){
-    let h = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.put(this.baseURL + "/Products/" + id, JSON.stringify(data), {headers:h});
-  }*/
-  
   public putProduct(Id:string,data:any): Observable<any>{
     return this.http.put(this.baseURL + "/Products/" + Id, data)
     .map(response => response)
     .catch( ( errorRes: Response ) => {
         return Observable.throw( errorRes.json() );
      });
-}
+  }
+
+  public newTransaction(data:any): Observable<any> {
+    let h = new HttpHeaders({ 'Content-Type': 'application/json' });
+    
+    return this.http.post(this.baseURL + '/Transactions', JSON.stringify(data), {headers: h}).map(res => res );
+  }
+
+
+  postSale(data: any): Observable<any> {
+    let h = new HttpHeaders({ 'Content-Type': 'application/json' });
+    
+    return this.http.post(this.baseURL + '/Sales', JSON.stringify(data), {headers: h}).map(res => res );
+  }
+
+  getMaxTransaction(): Observable<any> {
+    // Make the HTTP request:
+    return this.http.get(this.baseURL + "/Transactions/Max").map(res => res );
+  }
+
 
 }

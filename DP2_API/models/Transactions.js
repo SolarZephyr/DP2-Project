@@ -3,8 +3,11 @@ var Transactions = {
     getAllTransactions: function(callback) {  
         return db.query("select * from transaction", callback);  
     },  
-    addTransaction: function(Sale, callback) {  
-        return db.query("Insert into sale (transactionid, amt, unitprice, productid) values(?,?,?,?)", [Sale.transactionid, Sale.amt, Sale.unitprice, Sale.productid], callback);  
+    newTransaction: function(transaction, callback) {  
+        return db.query("Insert into transaction (EmployeeID, StatusID, Date) values(?,0,NOW())", [transaction.EmployeeID], callback);  
+    },
+    maxTransaction: function(callback){
+        return db.query("SELECT DISTINCT MAX(ID) AS 'MAX_TRANSACTION' FROM TRANSACTION", callback);
     }
 };  
 module.exports = Transactions; 

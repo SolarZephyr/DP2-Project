@@ -4,7 +4,7 @@ var Sales = {
         return db.query("select * from sale where transactionid=?", [id], callback);  
     },  
     addSale: function(Sale, callback) {  
-        return db.query("Insert into sale (transactionid, amt, unitprice, productid) values(?,?,?,?)", [Sale.transactionid, Sale.amt, Sale.unitprice, Sale.productid], callback);  
+        return db.query("Insert into sale (transactionid, amt, unitprice, productid) values(?,?,?,?)", [Sale.TransID, Sale.AmtSold, Sale.UnitPrice, Sale.ProdID], callback);  
     }
 };  
 module.exports = Sales; 

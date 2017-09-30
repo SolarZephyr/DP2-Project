@@ -11,7 +11,7 @@ router.get('/:id?', function(req, res, next) {
 		});
 });		
 router.post('/', function(req, res, next) {  
-    Transactions.addTransaction(req.body, function(err, count) {  
+    Transactions.newTransaction(req.body, function(err, count) {  
         if (err) {  
             res.json(err);  
         } else {  
@@ -19,4 +19,14 @@ router.post('/', function(req, res, next) {
         }  
     });  
 });  
+router.get('/Max', function(req, res, next) {  
+    Transactions.maxTransaction(function(err, rows)  {  
+			if (err) {  
+				res.json(err);  
+			} else {  
+				res.json(rows);  
+			}  
+		});
+});	
+
 module.exports = router; 
