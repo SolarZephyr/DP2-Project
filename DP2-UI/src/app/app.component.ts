@@ -8,7 +8,9 @@ declare var componentHandler: any;
 export class AppComponent {
   title = 'app';
   login: Login = {};
+  loggedIn : boolean;
   constructor(private element: ElementRef){
+    this.loggedIn = false;
   }
   ngAfterViewInit() {
     componentHandler.upgradeAllRegistered();
