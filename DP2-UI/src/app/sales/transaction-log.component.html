@@ -2,7 +2,7 @@
 <div class="mdl-cell mdl-layout_row">
   <div class="mdl-cell mdl-cell--6-col">
       <p><strong>Current Selected ID:</strong> {{this.selectedID}}</p>
-    <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+    <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" >
       <thead>
         <tr>
           <th>Transaction ID</th>
@@ -36,12 +36,12 @@
       <tbody>
         <ng-container *ngFor="let sale of sales">
         <tr *ngIf="sale.TransID == selectedID">
-          <td>{{sale.ID}}</td>
-          <td>{{sale.ProdID}}</td>
-          <td>{{sale.TransID}}</td>
-          <td>{{sale.ProdName}}</td>
-          <td>{{sale.ProdType}}</td>
-          <td>{{sale.AmtSold}}</td>
+          <td>{{sale?.ID}}</td>
+          <td>{{sale?.ProdID}}</td>
+          <td>{{sale?.TransID}}</td>
+          <td>{{sale?.ProdName}}</td>
+          <td>{{sale?.ProdType}}</td>
+          <td>{{sale?.AmtSold}}</td>
         </tr>
         </ng-container>
       </tbody>

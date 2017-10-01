@@ -24,13 +24,13 @@ export class InventoryComponent implements OnInit{
   }
 
   LoadAllProducts(){
-    this.sv.getProducts().subscribe(data => {
-            this.products = data;
-            },
-            err => {
-                console.log('we got an error:', err);
-                
-            });
+  this.sv.getProducts().subscribe(data => {
+          this.products = data;
+          },
+          err => {
+              console.log('we got an error:', err);
+              
+          });
   }
 
 

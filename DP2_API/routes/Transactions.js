@@ -1,7 +1,7 @@
 var express = require('express');  
 var router = express.Router();  
 var Transactions = require('../models/Transactions');  
-router.get('/:id?', function(req, res, next) {  
+router.get('/id/:id?', function(req, res, next) {  
     Transactions.getAllTransactions(function(err, rows)  {  
 			if (err) {  
 				res.json(err);  
@@ -19,7 +19,7 @@ router.post('/', function(req, res, next) {
         }  
     });  
 });  
-router.get('/Max', function(req, res, next) {  
+router.get('/max', function(req, res, next) {  
     Transactions.maxTransaction(function(err, rows)  {  
 			if (err) {  
 				res.json(err);  
