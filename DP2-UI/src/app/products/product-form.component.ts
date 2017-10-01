@@ -37,7 +37,7 @@ export class ItemForm {
         if(elem.MaterialTextfield != null)
             elem.MaterialTextfield.checkDirty();   
     });
-}
+  }
 
   ngOnInit() {
     

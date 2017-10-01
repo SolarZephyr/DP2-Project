@@ -16,7 +16,16 @@ export class TransactionsComponent implements OnInit {
   title = 'display sales';
   //sales = ['0001', '0001', '0001', 'jgldjslgj', 'Medicin', '10.00', '10'];
   
-
+  public MDLtxtFieldsCheckDirty(){
+    var nodeList = document.querySelectorAll('.mdl-textfield'); //for all
+    Array.prototype.forEach.call(nodeList, function (elem) {
+        if(elem.MaterialTextfield != null)
+            elem.MaterialTextfield.checkDirty();   
+    });
+  }
+  ngAfterContentChecked(){
+    this.MDLtxtFieldsCheckDirty();
+  }
 
 
     ngOnInit(){
@@ -33,6 +42,13 @@ export class TransactionsComponent implements OnInit {
   selectTransaction(newID: number){
     this.selectedID = newID;
     componentHandler.upgradeAllRegistered();
+    this.sv.getSalesByTransactionID(newID).subscribe(data => {
+      this.sales = data;
+      console.log(data);
+      },
+      err => {
+          console.log('we got an error:', err);
+      });
   }
 
   updateStatus(){

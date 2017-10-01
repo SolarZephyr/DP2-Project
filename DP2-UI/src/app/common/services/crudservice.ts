@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Product, ProdType, Employee} from '../typings/typings.d';
+import {Product, ProdType, Employee, Sale, Transaction} from '../typings/typings.d';
 
 @Component({
     providers:[HttpClient]
@@ -61,6 +61,15 @@ export class CRUDService {
     // Make the HTTP request:
     return this.http.get(this.baseURL + "/Transactions/Max").map(res => res );
   }
+
+  getTransactions(): Observable<Transaction[]> {
+    // Make the HTTP request:
+    return this.http.get(this.baseURL + "/Transactions/id").map(res => <Transaction[]>res );
+  }
+
+  getSalesByTransactionID(id: number): Observable<Sale[]> {
+    return this.http.get(this.baseURL + "/Sales/" + id).map(res => <Sale[]>res );
+}
 
   getEmployees(): Observable<Product[]> {
     // Make the HTTP request:
