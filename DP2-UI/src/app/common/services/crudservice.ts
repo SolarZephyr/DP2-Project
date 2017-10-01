@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Product, ProdType} from '../typings/typings.d';
+import {Product, ProdType, Employee} from '../typings/typings.d';
 
 @Component({
     providers:[HttpClient]
@@ -62,5 +62,27 @@ export class CRUDService {
     return this.http.get(this.baseURL + "/Transactions/Max").map(res => res );
   }
 
+  getEmployees(): Observable<Product[]> {
+    // Make the HTTP request:
+    return this.http.get(this.baseURL + "/Employees").map(res => <Employee[]>res );
+  }
+
+  getEmployeeByID(id: number): Observable<Product> {
+    return this.http.get(this.baseURL + "/Employees/" + id).map(res => <Employee>res[0] );
+}
+
+  postEmployee(data: any): Observable<any> {
+    let h = new HttpHeaders({ 'Content-Type': 'application/json' });
+  
+    return this.http.post(this.baseURL + '/Employees', JSON.stringify(data), {headers: h}).map(res => res );
+  }
+
+  public putEmployee(Id:string,data:any): Observable<any>{
+    return this.http.put(this.baseURL + "/Employees/" + Id, data)
+    .map(response => response)
+    .catch( ( errorRes: Response ) => {
+        return Observable.throw( errorRes.json() );
+    });
+}
 
 }

@@ -82,7 +82,7 @@ export class EmployeeForm {
   }
 
   LoadEmployeeData(){
-    /*this.sv.getEmployeeByID(this.id).subscribe(data => {
+    this.sv.getEmployeeByID(this.id).subscribe(data => {
       this.currentEmployee = data;
       },
       err => {
@@ -90,7 +90,7 @@ export class EmployeeForm {
           
       }, () =>{
         this.FillForm();
-      });*/
+      });
   }
 
   FillForm(){
@@ -117,14 +117,14 @@ export class EmployeeForm {
   SaveEmployee(){
     this.generateEmployeeFromForm();
     if(this.editMode){ 
-      /* this.sv.putEmployee(this.id.toString(), this.newEmployee).subscribe(
+      this.sv.putEmployee(this.id.toString(), this.newEmployee).subscribe(
         () => {},
       err => {console.log("failure")}, //if error
-      () => {console.log("success")}); */ //if success 
+      () => {console.log("success")});  //if success 
       
     }
     else{
-      /* this.sv.postEmployee(this.newEmployee).subscribe(data => {
+       this.sv.postEmployee(this.newEmployee).subscribe(data => {
         
         },
         err => {
@@ -132,7 +132,7 @@ export class EmployeeForm {
             
         }, () =>{
           alert("POST SUCCESS!");
-        }); */
+        });
     }
 
   }
