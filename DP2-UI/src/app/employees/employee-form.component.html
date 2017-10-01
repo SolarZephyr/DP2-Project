@@ -28,7 +28,7 @@
                 <input class="mdl-textfield__input" id="EmployeeLastName" ng-model="currentEmployee.LastName" type="text" pattern="^[A-Za-z -']{1,}$"/>
                 <label for="EmployeeLastName" class="mdl-textfield__label">Last Name</label>
             </div>
-            <br/>
+            <!--<br/>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" id="EmployeeLastSalary" ng-model="currentEmployee.Salary" type="text" pattern="^\d+\.\d{8,}$"/>
                 <label for="EmployeeSalary" class="mdl-textfield__label">Salary</label>
@@ -73,10 +73,9 @@
                 <input type="text" class="mdl-textfield__input" name="EmployeeMobile" id="EmployeeMobile" pattern="^0[0-8]\d{8,10}$"/>
                 <label for="EmployeeMobile" class="mdl-textfield__label">Mobile</label>
             </div>
-        <br/>
-        <a routerLink="/Employees">
-            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="SaveEmployee()"/>
-        </a>
+        <br/>-->
+        
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="SaveEmployee()"/>
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear" (click)="Clear()"/>
         <a routerLink="/Employees">
             <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel" />
