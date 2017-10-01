@@ -6,8 +6,11 @@ var Employees = {
     getEmployeesById: function(id, callback) {  
         return db.query("select * from Employee where Id = ?", [id], callback);  
     },  
-    updateEmployees: function(id, Product, callback) {  
-        return db.query("update product set firstname = ?,lastname = ? where id=?", [Employee.FirstName, Employee.LastName, id], callback);  
-    },  
+    updateEmployees: function(id, Employee, callback) {  
+        return db.query("update Employee set firstname = ?,lastname = ? where id=?", [Employee.FirstName, Employee.LastName, id], callback);  
+    },
+    addEmployee: function(Employee, callback) {  
+        return db.query("Insert into Employee (firstname, lastname) values(?, ?)", [Employee.FirstName, Employee.LastName, id]);  
+    }  
 };  
 module.exports = Employees;  

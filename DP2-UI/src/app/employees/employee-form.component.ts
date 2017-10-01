@@ -58,7 +58,7 @@ export class EmployeeForm {
        this.id = +params['ID']; // (+) converts string 'id' to a number    
     });
 
-    //this.LoadPositionData();
+    this.LoadPositionData();
 
     if(!isNaN(this.id))
       this.editMode = true;
@@ -71,7 +71,7 @@ export class EmployeeForm {
 
   }
 
-  LoadTypeData(){
+  LoadPositionData(){
     /*this.sv.getAllPositions().subscribe(data => {
       this.positions = data;
       },

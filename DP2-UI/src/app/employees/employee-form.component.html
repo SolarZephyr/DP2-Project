@@ -12,13 +12,6 @@
     </span>
 </div>
 
-<div *ngIf="editMode" >
-    <span class="mdl-chip mdl-chip--contact">
-        <span class="mdl-chip__contact mdl-color--deep_orange mdl-color-text--black">ID:</span>
-        <span class="mdl-chip__text" style="min-width:200px; text-align:right;">{{id}}</span>
-    </span>
-</div>
-
 <div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" id="EmployeeFirstName" ng-model="currentEmployee.FirstName" type="text" pattern="^[A-Za-z -']{1,}$"/>
