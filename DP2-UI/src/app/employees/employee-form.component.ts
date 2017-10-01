@@ -36,6 +36,21 @@ export class EmployeeForm {
             elem.MaterialTextfield.checkDirty();   
     });
 }
+  Clear() {
+    this.newEmployee = {};
+    this.currentEmployee = {};
+    /*(<HTMLInputElement>document.getElementById("EmployeeFirstName")). = null;
+    (<HTMLInputElement>document.getElementById("EmployeeLastName")).value = "";
+    (<HTMLInputElement>document.getElementById("EmployeeSalary")).value = "00000.00";
+    (<HTMLInputElement>document.getElementById("EmployeePosition")).value = "Pharmacist";
+    (<HTMLInputElement>document.getElementById("EmployeeHomeBSB")).value = this.currentEmployee.BSB;
+    (<HTMLInputElement>document.getElementById("EmployeeAccount")).value = this.currentEmployee.AccountNo;
+    (<HTMLInputElement>document.getElementById("EmployeeAddress")).value = this.currentEmployee.Address;
+    (<HTMLInputElement>document.getElementById("EmployeeCity")).value = this.currentEmployee.City;
+    (<HTMLInputElement>document.getElementById("EmployeePostcode")).valueAsNumber = 0;
+    (<HTMLInputElement>document.getElementById("EmployeeHomePhone")).value = this.currentEmployee.HomePhone;
+    (<HTMLInputElement>document.getElementById("EmployeeMobile")).value = this.currentEmployee.Mobile;*/
+  }
 
   ngOnInit() {
     

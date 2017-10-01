@@ -34,7 +34,7 @@
                 <label for="EmployeeSalary" class="mdl-textfield__label">Salary</label>
             </div>
             <div class="mdl-selectfield mdl-js-selectfield">
-                Type
+                Position
                 <select name="EmployeePositon" id="EmployeePosition" class="mdl-selectfield__select">
                     <option *ngFor="let position of positions" 
                         [value]="position.ID" >
@@ -43,11 +43,11 @@
                 </select>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" name="EmployeeBSB" id="EmployeeBSB" pattern="^[0-9 ]{1,}$" />
+                <input class="mdl-textfield__input" type="text" name="EmployeeBSB" id="EmployeeBSB" pattern="^\d\d\d+-+\d\d\d{1,}$" />
                 <label for="EmployeeBSB" class="mdl-textfield__label">BSB</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" name="EmployeeAccountNo" id="EmployeeAccountNo" pattern="^[0-9 ]{1,}$" />
+                <input class="mdl-textfield__input" type="text" name="EmployeeAccountNo" id="EmployeeAccountNo" pattern="^[0-9]{10}$" />
                 <label for="EmployeeAccountNo" class="mdl-textfield__label">Account No.</label>
             </div>
             <br/>
@@ -74,11 +74,12 @@
                 <label for="EmployeeMobile" class="mdl-textfield__label">Mobile</label>
             </div>
         <br/>
-        
-        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="SaveEmployee()"/>
-        <input class="mdl-button mdxxxxxxxxxl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear"/>
-        <a routerLink="/DisplayEmployee">
-            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel"/>
+        <a routerLink="/Employees">
+            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="SaveEmployee()"/>
+        </a>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear" (click)="Clear()"/>
+        <a routerLink="/Employees">
+            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel" />
         </a>
  
 </div>
