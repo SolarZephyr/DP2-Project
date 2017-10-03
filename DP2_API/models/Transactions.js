@@ -1,7 +1,7 @@
 var db = require('../dbconnection'); //reference of dbconnection.js  
 var Transactions = {  
-    getAllTransactions: function(callback) {  
-        return db.query("select * from transaction", callback);  
+    getAllTransactions: function(skip, take, callback) {  
+        return db.query("select * from transaction LIMIT ?,?", [skip, take], callback);  
     },  
     newTransaction: function(transaction, callback) {  
         return db.query("Insert into transaction (EmployeeID, StatusID, Date) values(?,0,NOW())", [transaction.EmployeeID], callback);  

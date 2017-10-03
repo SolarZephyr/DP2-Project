@@ -62,9 +62,9 @@ export class CRUDService {
     return this.http.get(this.baseURL + "/Transactions/Max").map(res => res );
   }
 
-  getTransactions(): Observable<Transaction[]> {
+  getTransactions(data: any): Observable<Transaction[]> {
     // Make the HTTP request:
-    return this.http.get(this.baseURL + "/Transactions/id").map(res => <Transaction[]>res );
+    return this.http.get(this.baseURL + "/Transactions/skip/" + data.skip + '/take/' + data.take).map(res => <Transaction[]>res );
   }
 
   getSalesByTransactionID(id: number): Observable<Sale[]> {

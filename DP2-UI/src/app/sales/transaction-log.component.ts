@@ -14,8 +14,34 @@ export class TransactionsComponent implements OnInit {
   sales: Array<Sale>;
   selectedID: number;
   title = 'display sales';
-  //sales = ['0001', '0001', '0001', 'jgldjslgj', 'Medicin', '10.00', '10'];
-  
+  state = {"skip":0, "take":10};
+  page = 1;
+
+  public paginate(dir: string){
+    switch(dir){
+      case('left'):
+        if(this.state.skip > 0){
+          if(this.state.skip-10 > 0){
+            this.state.skip -= 10;
+          }else{
+            this.state.skip = 0;
+          }
+        }
+        break;
+      case('right'):
+        this.state.skip += 10;
+        break;
+      default:
+        break;
+    }
+    this.calcpage();
+    this.LoadAllTransactions();
+  }
+
+  public calcpage(){
+    this.page = (this.state.skip/10)+1;
+  }
+
   public MDLtxtFieldsCheckDirty(){
     var nodeList = document.querySelectorAll('.mdl-textfield'); //for all
     Array.prototype.forEach.call(nodeList, function (elem) {
@@ -63,8 +89,9 @@ export class TransactionsComponent implements OnInit {
 
   
   LoadAllTransactions(){
-    this.sv.getTransactions().subscribe(data => {
+    this.sv.getTransactions(this.state).subscribe(data => {
       this.transactions = data;
+      console.log(data);
       },
       err => {
           console.log('we got an error:', err);

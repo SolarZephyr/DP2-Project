@@ -1,8 +1,8 @@
 var express = require('express');  
 var router = express.Router();  
 var Transactions = require('../models/Transactions');  
-router.get('/id/:id?', function(req, res, next) {  
-    Transactions.getAllTransactions(function(err, rows)  {  
+router.get('/skip/:skip/take/:take', function(req, res, next) {  
+    Transactions.getAllTransactions(Number(req.params.skip), Number(req.params.take), function(err, rows)  {  
 			if (err) {  
 				res.json(err);  
 			} else {  
