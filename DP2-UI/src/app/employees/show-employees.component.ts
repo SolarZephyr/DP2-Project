@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee, Position } from '../common/typings/typings.d';
+import { Employee } from '../common/typings/typings.d';
 import { CRUDService } from '../common/services/crudservice';
 
 

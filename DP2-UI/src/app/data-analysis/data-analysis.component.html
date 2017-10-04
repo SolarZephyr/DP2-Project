@@ -2,46 +2,47 @@
 <div class="mdl-grid">
     <div class="mdl-cell--cell-12">
         <label for="EmployeeSales">
-            <input type="radio" name="DataAnalysis" id="EmployeeSales"
-            ng-model="analysis" value="EmployeeSales" checked/> Employee Sales
+            <input type="radio" name="sort" id="SortById"
+            ng-model="sort" value="id" checked/> Sort By ID
         </label>
         <label for="SalesPrediction">
-            <input type="radio" name="DataAnalysis" id="SalesPrediction" 
-            ng-model="analysis" value="MonthlySales"/> Sales Prediction
+            <input type="radio" name="sort" id="SortByType" 
+            ng-model="sort" value="type"/> Sort By Type
         </label>
         <label for="NeededStock">
-            <input type="radio" name="DataAnalysis" id="NeededStock"
-            ng-model="analysis" value="NeededSales"/> Needed Stock
+            <input type="radio" name="sort" id="SortByPrice"
+            ng-model="sort" value="price"/> Sort By Price
         </label>
         <label for="Monthly Sales">
-            <input type="radio" name="DataAnalysis" id="MonthlySales" 
-            ng-model="analysis" value="SalesPrediction"/> Monthly Sales
+            <input type="radio" name="sort" id="SortBy" 
+            ng-model="sort" value=""/> Sort By
         </label>
-        <div class="mdl-selectfield mdl-js-selectfield">
-            EmployeeID
-            <select name="EmployeeID" id="EmployeeID" class="mdl-selectfield__select">
-                <option *ngFor="let employee of employees" 
-                    [value]="employee.ID" >
-                    {{employee.ID}}
-                </option>
-            </select>
-        </div>
     </div>
 </div>
 
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
-        <div *ngIf="analysis == MonthlySales">
-            <monthly-sales></monthly-sales>
-        </div>
-        <div *ngIf="analysis == EmployeeSales">
-            <employee-sales></employee-sales>
-        </div>
-        <div *ngIf="analysis == NeededStock">
-            <needed-stock></needed-stock>
-        </div>
-        <div *ngIf="analysis == SalesPrediction">
-            <sales-prediction></sales-prediction>
-        </div>
+        <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+                    <th class="mdl-data-table__cell--non-numeric">Type</th>
+                    <th>Price</th>
+                    <th>Current Stock</th>
+                    <th>Expected Amount Sold</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prediction of predictions">
+                    <td>{{prediction.ProductID}}</td>
+                    <td>{{prediction.Name}}</td>
+                    <td>{{prediction.Type}}</td>
+                    <td>{{prediction.Price | currency : "AUD" : 2}}</td>
+                    <td>{{prediction.Stock}}</td>
+                    <td>{{prediction.PredictedAmountSold}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

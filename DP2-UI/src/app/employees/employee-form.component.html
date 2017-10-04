@@ -13,61 +13,16 @@
 </div>
 
 <div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" id="EmployeeFirstName" ng-model="currentEmployee.FirstName" type="text" pattern="^[A-Za-z -']{1,}$"/>
-                <label for="EmployeeFirstName" class="mdl-textfield__label">First Name</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" id="EmployeeLastName" ng-model="currentEmployee.LastName" type="text" pattern="^[A-Za-z -']{1,}$"/>
-                <label for="EmployeeLastName" class="mdl-textfield__label">Last Name</label>
-            </div>
-            <!--<br/>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" id="EmployeeLastSalary" ng-model="currentEmployee.Salary" type="text" pattern="^\d+\.\d{8,}$"/>
-                <label for="EmployeeSalary" class="mdl-textfield__label">Salary</label>
-            </div>
-            <div class="mdl-selectfield mdl-js-selectfield">
-                Position
-                <select name="EmployeePositon" id="EmployeePosition" class="mdl-selectfield__select">
-                    <option *ngFor="let position of positions" 
-                        [value]="position.ID" >
-                        {{position.Description}}
-                    </option>
-                </select>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" name="EmployeeBSB" id="EmployeeBSB" pattern="^\d\d\d+-+\d\d\d{1,}$" />
-                <label for="EmployeeBSB" class="mdl-textfield__label">BSB</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" name="EmployeeAccountNo" id="EmployeeAccountNo" pattern="^[0-9]{10}$" />
-                <label for="EmployeeAccountNo" class="mdl-textfield__label">Account No.</label>
-            </div>
-            <br/>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" name="EmployeeAddress" id="EmployeeAddress" pattern="^[0-9]{1,}[A-Za-z]{1,}$" />
-                <label for="EmployeeAddress" class="mdl-textfield__label">Address</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input type="text" class="mdl-textfield__input" name="EmployeeCity" id="EmployeeCity" pattern="^[A-Za-z]{1,}$"/>
-                <label for="EmployeeCity" class="mdl-textfield__label">City</label>
-            </div> 
-            <br/>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input type="text" class="mdl-textfield__input" name="EmployeePostcode" id="EmployeePostcode" pattern="^[3000-3996]{4}$" />
-                <label for="EmployeePostcode" class="mdl-textfield__label">Postcode</label>
-            </div>
-            <br/>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input type="text" class="mdl-textfield__input" name="EmployeeHomePhone" id="EmployeeHomePhone" pattern="^(9|0)+[0-8]\d{8,10}$"/>
-                <label for="EmployeePhone" class="mdl-textfield__label">Home Phone</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input type="text" class="mdl-textfield__input" name="EmployeeMobile" id="EmployeeMobile" pattern="^0[0-8]\d{8,10}$"/>
-                <label for="EmployeeMobile" class="mdl-textfield__label">Mobile</label>
-            </div>
-        <br/>-->
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" id="EmployeeFirstName" ng-model="currentEmployee.FirstName" type="text" pattern="^[A-Za-z -']{1,}$"/>
+            <label for="EmployeeFirstName" class="mdl-textfield__label">First Name</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" id="EmployeeLastName" ng-model="currentEmployee.LastName" type="text" pattern="^[A-Za-z -']{1,}$"/>
+            <label for="EmployeeLastName" class="mdl-textfield__label">Last Name</label>
+        </div>
         
+
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="SaveEmployee()"/>
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear" (click)="Clear()"/>
         <a routerLink="/Employees">

@@ -17,21 +17,17 @@
       </nav> -->
       <div *ngIf="!LoggedIn">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input type="text" name="empID" id="empID" ng-model="login.empID" class="mdl-textfield__input mdl-color-text--white"/>
+          <input type="text" name="empID" id="empID" ng-model="loggedID" class="mdl-textfield__input mdl-color-text--white"/>
           <label for="empID" class="mdl-textfield__label">Employee ID</label>
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input type="password" name="pwd" id="pwd" ng-model="login.pwd" class="mdl-textfield__input mdl-color-text--white"/>
-          <label for="pwd" class="mdl-textfield__label">Password</label>
-        </div>
-        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="button" value="Login" (click)="logIn(login)"/>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="button" value="Login" (click)="logIn()"/>
       </div>
-      <div *ngIf="LoggedIn">
+      <div *ngIf="loggedIn">
           <span class="mdl-chip mdl-chip--contact">
               <span class="mdl-chip__contact mdl-color--deep_orange mdl-color-text--black">ID:</span>
-              <span class="mdl-chip__text" style="min-width:200px; text-align:right;">{{LOGIN.ID}}</span>
+              <span class="mdl-chip__text" style="min-width:200px; text-align:right;">{{loggedId}}</span>
           </span>
-          <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="button" value="Log Out" (click)="logOut"/>
+          <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="button" value="Log Out" (click)="logOut()"/>
       </div>
     </div>
   </header>

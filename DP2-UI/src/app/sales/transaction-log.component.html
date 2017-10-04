@@ -8,7 +8,33 @@
 <h2>Sales History</h2>
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--4-col">
-      <p><strong>Current Selected ID:</strong> {{this.selectedID}}</p>
+    <p><strong>Current Selected ID:</strong> {{this.selectedID}}</p>
+    <label for="empSort">
+      <input type="radio" name="SalesSort" id="empSort" 
+      ng-model="SalesSort" value="id" checked/> Sort By EmployeeID
+    </label>
+    <div class="mdl-selectfield mdl-js-selectfield">
+      EmployeeID: 
+      <select name="EmployeeId" id="EmployeeId" class="mdl-selectfield__select">
+          <option *ngFor="let employee of employees" [value]="employee.ID">
+          {{employee.ID}}
+          </option>
+      </select>
+    </div>
+    <br/>
+    <label for="monthSort">
+        <input type="radio" name="SalesSort" id="monthSort" 
+        ng-model="SalesSort" value="type"/> Sort By Month
+    </label>
+    <div class="mdl-selectfield mdl-js-selectfield">
+      Month
+      <select name="month" id="month" class="mdl-selectfield__select">
+          <option *ngFor="let month of months" [value]="month">
+          {{month}}
+          </option>
+      </select>
+  </div>
+
     <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" >
       <thead>
         <tr>
@@ -27,11 +53,15 @@
         </tr>
       </tbody>
     </table>
-    <button *ngIf="state.skip != 0" (click)="paginate('left')"><<</button>
+    <button *ngIf="state.skip != 0" (click)="paginate('left')" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+      <i class="material-icons">chevron left</i>
+    </button>
     
       page {{page}} of ___
 
-    <button (click)="paginate('right')">>></button>
+    <button (click)="paginate('right')" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+      <i class="material-icons">chevron right</i>
+    </button>
   </div>
   <div class="mdl-layout-spacer"></div>
   <div class="mdl-cell mdl-cell--6-col">

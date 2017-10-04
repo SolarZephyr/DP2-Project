@@ -10,7 +10,7 @@ var Employees = {
         return db.query("update Employee set firstname = ?,lastname = ? where id=?", [Employee.FirstName, Employee.LastName, id], callback);  
     },
     addEmployee: function(Employee, callback) {  
-        return db.query("Insert into Employee (firstname, lastname) values(?, ?)", [Employee.FirstName, Employee.LastName, id]);  
+        return db.query("Insert into Employee (firstname, lastname) values(?, ?)", [Employee.FirstName, Employee.LastName]);  
     }  
 };  
 module.exports = Employees;  

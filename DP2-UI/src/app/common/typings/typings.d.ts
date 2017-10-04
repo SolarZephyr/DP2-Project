@@ -1,8 +1,3 @@
-export interface Login{
-    ID ?: number;
-    Password ?: string;
-}
-
 export interface Product{
    ID ?: number;
    Name ?: string;
@@ -42,22 +37,8 @@ export interface ProdType{
     Description ?: string;
 }
 
-export interface Position {
-    ID ?: number;
-    Description ?: string;
-}
-
 export interface Employee{
     ID ?: number;
     FirstName ?: string;
     LastName ?: string;
-    Salary ?: number;
-    Position ?: string;
-    BSB ?: string;
-    AccountNo ?: string;
-    Address ?: string;
-    City ?: string;
-    Postcode ?: number;
-    HomePhone ?: string;
-    Mobile ?: string;
 }
