@@ -15,6 +15,8 @@ export class AppComponent {
   ngAfterViewInit() {
     componentHandler.upgradeAllRegistered();
   }
+
+  
   
   getTheData(id: string){
     alert(id);

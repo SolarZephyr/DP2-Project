@@ -115,4 +115,17 @@ export class NewTransactionForm  implements OnInit{
       }
     );
   }
+
+  ngAfterContentChecked(){
+    this.MDLtxtFieldsCheckDirty();
+  }
+  
+
+  public MDLtxtFieldsCheckDirty(){
+    var nodeList = document.querySelectorAll('.mdl-textfield'); //for all
+    Array.prototype.forEach.call(nodeList, function (elem) {
+        if(elem.MaterialTextfield != null)
+            elem.MaterialTextfield.checkDirty();   
+    });
+  }
 }

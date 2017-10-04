@@ -1,6 +1,13 @@
+
+<style> 
+  .tbody{
+    min-height:412px;
+  }
+</style>
+
 <h2>Sales History</h2>
-<div class="mdl-cell mdl-layout_row">
-  <div class="mdl-cell mdl-cell--6-col">
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col">
       <p><strong>Current Selected ID:</strong> {{this.selectedID}}</p>
     <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" >
       <thead>
@@ -20,8 +27,15 @@
         </tr>
       </tbody>
     </table>
+    <button *ngIf="state.skip != 0" (click)="paginate('left')"><<</button>
+    
+      page {{page}} of ___
+
+    <button (click)="paginate('right')">>></button>
   </div>
+  <div class="mdl-layout-spacer"></div>
   <div class="mdl-cell mdl-cell--6-col">
+      <p><strong>Sales:</strong></p>
     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
       <thead>
         <tr>
@@ -35,17 +49,18 @@
       </thead>
       <tbody>
         <ng-container *ngFor="let sale of sales">
-        <tr *ngIf="sale.TransID == selectedID">
-          <td>{{sale?.ID}}</td>
-          <td>{{sale?.ProdID}}</td>
-          <td>{{sale?.TransID}}</td>
-          <td>{{sale?.ProdName}}</td>
-          <td>{{sale?.ProdType}}</td>
-          <td>{{sale?.AmtSold}}</td>
-        </tr>
+          <tr>
+            <td>{{sale?.ID}}</td>
+            <td>{{sale?.ProductID}}</td>
+            <td>{{sale?.TransactionID}}</td>
+            <td>PRODUCT NAME</td>
+            <td>PRODUCT TYPE</td>
+            <td>{{sale?.Amt}}</td>
+          </tr>
         </ng-container>
       </tbody>
     </table>
+
     <button (click)="updateStatus()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Change Status</button>
     <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Print CSV" (click)="printCSV()"/>
   </div>
