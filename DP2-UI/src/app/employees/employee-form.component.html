@@ -1,4 +1,4 @@
-<h2>New Employee</h2>
+<h2>Add Employee</h2>
 <div *ngIf="false">
     [EDIT MODE]
     {{currentEmployee | json}}
@@ -22,6 +22,7 @@
             <label for="EmployeeLastName" class="mdl-textfield__label">Last Name</label>
         </div>
         
+        <br/>
 
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="SaveEmployee()"/>
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear" (click)="Clear()"/>
