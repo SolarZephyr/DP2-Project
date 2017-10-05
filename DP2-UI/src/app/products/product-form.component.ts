@@ -58,6 +58,15 @@ export class ItemForm {
 
   }
 
+  Clear() {
+    this.currentProduct = null;
+    this.newProduct = null;
+    (<HTMLInputElement>document.getElementById("ProductName")).value = null;
+    (<HTMLInputElement>document.getElementById("ProductType")).value = null;
+    (<HTMLInputElement>document.getElementById("ProductPrice")).value = null;
+    (<HTMLInputElement>document.getElementById("ProductStock")).value = null;
+  }
+
   LoadTypeData(){
     this.sv.getAllTypes().subscribe(data => {
       this.types = data;
