@@ -80,6 +80,11 @@ export class CRUDService {
     return this.http.get(this.baseURL + "/Employees").map(res => <Employee[]>res );
   }
 
+  getEmployeeIds(): Observable<number[]> {
+    // Make the HTTP request:
+    return this.http.get(this.baseURL + "/Employees/Ids").map(res => <number[]>res );
+  }
+
   getEmployeeByID(id: number): Observable<Product> {
     return this.http.get(this.baseURL + "/Employees/" + id).map(res => <Employee>res[0] );
 }

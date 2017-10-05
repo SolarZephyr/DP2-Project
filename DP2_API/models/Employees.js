@@ -11,6 +11,9 @@ var Employees = {
     },
     addEmployee: function(Employee, callback) {  
         return db.query("Insert into Employee (firstname, lastname) values(?, ?)", [Employee.FirstName, Employee.LastName]);  
-    }  
+    },
+    getEmployeeIds: function(Employee, callback) {
+        return db.query("select id from Employee");
+    }
 };  
-module.exports = Employees;  
+module.exports = Employees;

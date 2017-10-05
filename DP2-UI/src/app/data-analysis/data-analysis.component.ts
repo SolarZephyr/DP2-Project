@@ -28,7 +28,7 @@ export class DataAnalysis {
             err => {
                 console.log('we got an error:', err);
                 
-            });
+     });
   }
   
 }

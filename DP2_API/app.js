@@ -31,6 +31,7 @@ app.use('/', routes);
 app.use('/users', users);  
 app.use('/Products', Products);
 app.use('/Employees', Employees);
+app.use('/Employees/Ids', Employees);
 app.use('/Transactions', Transactions);
 app.use('/Sales', Sales);
 app.use('/Types', Types);

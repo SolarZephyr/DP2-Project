@@ -19,7 +19,16 @@ router.get('/:id?', function(req, res, next) {
 			}  
 		});  
     }  
-});  
+}); 
+router.get('/Ids', function(res) {
+    Employees.getEmployeesIds(function(err, rows) {  
+        if (err) {  
+            res.json(err);  
+        } else {  
+            res.json(rows);  
+        }  
+    });
+});
 
 router.post('/', function(req, res, next) {  
     Employees.addEmployee(req.body, function(err, count) {  

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Sale, Transaction } from '../common/typings/typings.d';
+import { Sale, Transaction, Employee } from '../common/typings/typings.d';
 import { CRUDService } from '../common/services/crudservice';
 
 declare var componentHandler: any;
@@ -13,9 +13,14 @@ export class TransactionsComponent implements OnInit {
   transactions: Array<Transaction>;
   sales: Array<Sale>;
   selectedID: number;
+  employees: Array<Employee>;
+  months: Array<string>;
+  param: any;
+  sort: string;
   title = 'display sales';
   state = {"skip":0, "take":10};
   page = 1;
+  filterObj: Transaction;
 
   public paginate(dir: string){
     switch(dir){
@@ -56,13 +61,23 @@ export class TransactionsComponent implements OnInit {
 
     ngOnInit(){
       this.LoadAllTransactions();
+      this.LoadEmployees();
     }
   
+    LoadEmployees(){
+      this.sv.getEmployees().subscribe(data => {
+        this.employees = data;
+        },
+        err => {
+            console.log('we got an error:', err);
+            
+        });
+    }
 
-  constructor(private sv: CRUDService){
-    
+  constructor(private sv: CRUDService) {
     this.transactions = [];
     this.sales = [];
+    this.months = ["January", "Febuary","March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   }
 
   selectTransaction(newID: number){
@@ -85,8 +100,6 @@ export class TransactionsComponent implements OnInit {
     }
    
   }
-
-
   
   LoadAllTransactions(){
     this.sv.getTransactions(this.state).subscribe(data => {

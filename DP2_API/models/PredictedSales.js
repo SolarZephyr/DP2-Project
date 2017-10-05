@@ -1,13 +1,7 @@
 var db = require('../dbconnection'); //reference of dbconnection.js  
 var PredictedSales = {  
-    getPredictedSalesSortById: function(callback) {  
-        return db.query("select * from PredictedSales order by id", callback);  
-    },
-    getPredictedSalesSortByType : function(callback) {
-        return db.query ("select *  from PredictedSales group by type order by type");
-    },
-    getPredictedSalesSortByPrice : function(callback) {
-        return db.query ("select *  from PredictedSales order by price");
+    getPredictedSales: function(sort, callback) {  
+        return db.query("select * from PredictedSales order by sort=?", [sort], callback);  
     }
 };  
 module.exports = PredictedSales; 
