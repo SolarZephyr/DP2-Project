@@ -129,11 +129,11 @@ export class ItemForm {
 
   generateProductFromForm(){ 
     if(this.editMode)
-        this.newProduct.ID = this.id;
-    this.newProduct.Name = (<HTMLInputElement>document.getElementById("ProductName")).value;
-    this.newProduct.Type = Number((<HTMLInputElement>document.getElementById("ProductType")).value);
-    this.newProduct.Price =  Number((<HTMLInputElement>document.getElementById("ProductPrice")).value);
-    this.newProduct.Stock =  Number((<HTMLInputElement>document.getElementById("ProductStock")).value);
+      this.newProduct.ID = this.id;
+      this.newProduct.Name = (<HTMLInputElement>document.getElementById("ProductName")).value;
+      this.newProduct.Type = ((<HTMLInputElement>document.getElementById("ProductType")).value);
+      this.newProduct.Price =  Number((<HTMLInputElement>document.getElementById("ProductPrice")).value);
+      this.newProduct.Stock =  Number((<HTMLInputElement>document.getElementById("ProductStock")).value);
 
   }
 
