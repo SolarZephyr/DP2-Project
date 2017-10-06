@@ -1,8 +1,94 @@
 var db = require('../dbconnection'); //reference of dbconnection.js  
 var Sales = {  
     getSaleById: function(id, callback) {  
-        return db.query("select * from sale where transactionid=?", [id], callback);  
+		return db.query("select * from sale where transactionid=?", [id], callback);  
     },  
+	getSalePredictionById: function(itemid, callback) {  
+        return db.query("SELECT Date, Count(ProductID) AS Cnt FROM Sale Natural Join Transaction WHERE ProductId = ? GROUP BY Date ORDER BY Date", [itemid], function(err, result, fields)
+		{
+			var xmean = 0.0;
+			var ymean = 0.0;
+			var prevDate = result[0].Date;
+			prevDate.setDate(result[0].Date.getDate() - 1);
+			var counter = 0;
+			for(i = 0; i < result.length; i++)
+			{
+				prevDate.setDate(prevDate.getDate() + 1);
+				if(result[i].Date != prevDate)
+				{
+					do
+					{
+						prevDate.setDate(prevDate.getDate() + 1);
+						counter++;
+					}
+					while(result[i].Date > prevDate);
+					ymean += result[i].Cnt;
+				}
+				else
+				{	
+					counter++;
+					ymean += result[i].Cnt;
+				}
+				prevDate = result[i].Date;
+			}
+			xmean = (counter*(counter+1))/2;
+			ymean = ymean / (counter);
+			xmean = xmean / (counter);
+			
+			var top = 0.0;
+			var bottom = 0.0;
+			for(i = 0; i < result.length; i++)
+			{
+				top += ((i-xmean)*(result[i].Cnt-ymean));
+				bottom += ((i-xmean)*(i-xmean));
+			}
+			//callback("mean: " + (top/bottom) + ", top: " + top + ", bottom: " + bottom + ", ymean: " + ymean + ", xmean: " + xmean);
+			//callback("date: " + result[0].Date + ", debug: " + (result[0].Date > result[1].Date).toString() + ", debug2: " + (result[0].Date < result[1].Date).toString());
+		});
+    }, 
+	getSalePredictionByType: function(groupid, callback) {  
+        return db.query("SELECT Transaction.Date, Count(Sale.ProductID) AS Cnt FROM ((Sale Inner Join Product ON Sale.ProductId = Product.ID) Inner Join Transaction ON Sale.TransactionID = Transaction.ID) WHERE Product.Type = ? GROUP BY Transaction.Date", [groupid], function(err, result, fields)
+		{
+			var xmean = 0.0;
+			var ymean = 0.0;
+			var prevDate = result[0].Date;
+			prevDate.setDate(result[0].Date.getDate() - 1);
+			var counter = 0;
+			for(i = 0; i < result.length; i++)
+			{
+				prevDate.setDate(prevDate.getDate() + 1);
+				if(result[i].Date != prevDate)
+				{
+					do
+					{
+						prevDate.setDate(prevDate.getDate() + 1);
+						counter++;
+					}
+					while(result[i].Date > prevDate);
+					ymean += result[i].Cnt;
+				}
+				else
+				{	
+					counter++;
+					ymean += result[i].Cnt;
+				}
+				prevDate = result[i].Date;
+			}
+			xmean = (counter*(counter+1))/2;
+			ymean = ymean / (counter);
+			xmean = xmean / (counter);
+			
+			var top = 0.0;
+			var bottom = 0.0;
+			for(i = 0; i < result.length; i++)
+			{
+				top += ((i-xmean)*(result[i].Cnt-ymean));
+				bottom += ((i-xmean)*(i-xmean));
+			}
+			//callback("mean: " + (top/bottom) + ", top: " + top + ", bottom: " + bottom + ", ymean: " + ymean + ", xmean: " + xmean);
+			//callback("date: " + result[0].Date + ", debug: " + (result[0].Date > result[1].Date).toString() + ", debug2: " + (result[0].Date < result[1].Date).toString());
+		});
+    }, 
     addSale: function(Sale, callback) {  
         return db.query("Insert into sale (transactionid, amt, unitprice, productid) values(?,?,?,?)", [Sale.TransID, Sale.AmtSold, Sale.UnitPrice, Sale.ProdID], callback);  
     }
