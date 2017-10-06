@@ -1,3 +1,15 @@
+/**
+ * This 'type declaration' file contains
+ * types for many of the data objects used 
+ * by the User Interface. 
+ * 
+ * These objects are pretty self explanatory 
+ * They are an interface, with a number of fields.
+ * 
+ * All fields are nullable because the IDs are provided 
+ * by the Database
+ */
+
 export interface Product{
    ID ?: number;
    Name ?: string;
