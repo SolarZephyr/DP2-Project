@@ -91,7 +91,7 @@ export class ItemForm {
 
   FillForm(){
     (<HTMLInputElement>document.getElementById("ProductName")).value = this.currentProduct.Name;
-    (<HTMLInputElement>document.getElementById("ProductType")).value = this.currentProduct.Type.toString();
+    (<HTMLInputElement>document.getElementById("ProductType")).value = this.currentProduct.Description;
     (<HTMLInputElement>document.getElementById("ProductPrice")).value = this.currentProduct.Price.toString();
     (<HTMLInputElement>document.getElementById("ProductStock")).value = this.currentProduct.Stock.toString();
   }
@@ -131,7 +131,7 @@ export class ItemForm {
     if(this.editMode)
       this.newProduct.ID = this.id;
       this.newProduct.Name = (<HTMLInputElement>document.getElementById("ProductName")).value;
-      this.newProduct.Type = ((<HTMLInputElement>document.getElementById("ProductType")).value);
+      this.newProduct.Description = ((<HTMLInputElement>document.getElementById("ProductType")).value);
       this.newProduct.Price =  Number((<HTMLInputElement>document.getElementById("ProductPrice")).value);
       this.newProduct.Stock =  Number((<HTMLInputElement>document.getElementById("ProductStock")).value);
 
