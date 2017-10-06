@@ -40,6 +40,7 @@ export class NewTransactionForm  implements OnInit{
             });
   }
 
+
   addSale(){
     this.toAdd.TransID = this.transaction_id;
     this.toAdd.UnitPrice =  this.allProducts.find(product => product.ID == this.toAdd.ProdID).Price;
@@ -101,7 +102,7 @@ export class NewTransactionForm  implements OnInit{
         //Get the ID
         this.sv.getMaxTransaction().subscribe(
           data => {
-            maxT = data;
+            maxT = data[0].MAX_TRANSACTION;
             },
           err => {},
           () => {
@@ -113,5 +114,18 @@ export class NewTransactionForm  implements OnInit{
         )
       }
     );
+  }
+
+  ngAfterContentChecked(){
+    this.MDLtxtFieldsCheckDirty();
+  }
+  
+
+  public MDLtxtFieldsCheckDirty(){
+    var nodeList = document.querySelectorAll('.mdl-textfield'); //for all
+    Array.prototype.forEach.call(nodeList, function (elem) {
+        if(elem.MaterialTextfield != null)
+            elem.MaterialTextfield.checkDirty();   
+    });
   }
 }

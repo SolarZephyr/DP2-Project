@@ -1,15 +1,34 @@
 import { Component } from '@angular/core';
-import { EmployeeSales } from '../data-analysis/employee-sales/employee-sales.component';
-import { MonthlySales } from '../data-analysis/monthly-sales/monthly-sales.component';
-import { NeededStock } from '../data-analysis/needed-stock/needed-stock.component';
-import { SalesPrediction } from '../data-analysis/sales-prediction/sales-prediction.component';
-
+import { PredictedSales } from '../common/typings/typings.d';
+import { CRUDService } from '../common/services/crudservice';
 @Component({
   selector: 'data-analysis',
-  templateUrl: './data-analysis.component.html'
+  templateUrl: './data-analysis.component.html',
+  providers:[CRUDService]
 })
 
 export class DataAnalysis {
   title = 'Data Analysis';
+  sort : string = "id";
+  state = {"skip":0, "take":10};
+  predictions : Array<PredictedSales>
+
+  constructor (private sv: CRUDService) {
+
+  }
+ 
+  ngOnInit(){
+    this.LoadAllSales();
+  }
+
+  LoadAllSales(){
+    this.sv.getPredicitions(this.sort).subscribe(data => {
+            this.predictions = data;
+            },
+            err => {
+                console.log('we got an error:', err);
+                
+     });
+  }
   
 }

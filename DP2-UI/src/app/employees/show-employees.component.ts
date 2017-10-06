@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee, Position } from '../common/typings/typings.d';
+import { Employee } from '../common/typings/typings.d';
 import { CRUDService } from '../common/services/crudservice';
 
 
@@ -11,7 +11,6 @@ import { CRUDService } from '../common/services/crudservice';
 
 export class ShowEmployeesComponent implements OnInit{
   employees: Array<Employee>;
-  positions: Array<Position>;
 
   constructor(private sv: CRUDService){
     this.employees = [];
@@ -22,13 +21,13 @@ export class ShowEmployeesComponent implements OnInit{
   }
 
   LoadAllEmployees(){
-    /*this.sv.getEmployees().subscribe(data => {
+    this.sv.getEmployees().subscribe(data => {
             this.employees = data;
             },
             err => {
                 console.log('we got an error:', err);
                 
-            });*/
+            });
   }
 
 

@@ -37,7 +37,7 @@ export class ItemForm {
         if(elem.MaterialTextfield != null)
             elem.MaterialTextfield.checkDirty();   
     });
-}
+  }
 
   ngOnInit() {
     
@@ -56,6 +56,15 @@ export class ItemForm {
 
     }
 
+  }
+
+  Clear() {
+    this.currentProduct = null;
+    this.newProduct = null;
+    (<HTMLInputElement>document.getElementById("ProductName")).value = null;
+    (<HTMLInputElement>document.getElementById("ProductType")).value = null;
+    (<HTMLInputElement>document.getElementById("ProductPrice")).value = null;
+    (<HTMLInputElement>document.getElementById("ProductStock")).value = null;
   }
 
   LoadTypeData(){
@@ -82,7 +91,7 @@ export class ItemForm {
 
   FillForm(){
     (<HTMLInputElement>document.getElementById("ProductName")).value = this.currentProduct.Name;
-    (<HTMLInputElement>document.getElementById("ProductType")).value = this.currentProduct.Type.toString();
+    (<HTMLInputElement>document.getElementById("ProductType")).value = this.currentProduct.Description;
     (<HTMLInputElement>document.getElementById("ProductPrice")).value = this.currentProduct.Price.toString();
     (<HTMLInputElement>document.getElementById("ProductStock")).value = this.currentProduct.Stock.toString();
   }
@@ -120,11 +129,11 @@ export class ItemForm {
 
   generateProductFromForm(){ 
     if(this.editMode)
-        this.newProduct.ID = this.id;
-    this.newProduct.Name = (<HTMLInputElement>document.getElementById("ProductName")).value;
-    this.newProduct.Type = Number((<HTMLInputElement>document.getElementById("ProductType")).value);
-    this.newProduct.Price =  Number((<HTMLInputElement>document.getElementById("ProductPrice")).value);
-    this.newProduct.Stock =  Number((<HTMLInputElement>document.getElementById("ProductStock")).value);
+      this.newProduct.ID = this.id;
+      this.newProduct.Name = (<HTMLInputElement>document.getElementById("ProductName")).value;
+      this.newProduct.Description = ((<HTMLInputElement>document.getElementById("ProductType")).value);
+      this.newProduct.Price =  Number((<HTMLInputElement>document.getElementById("ProductPrice")).value);
+      this.newProduct.Stock =  Number((<HTMLInputElement>document.getElementById("ProductStock")).value);
 
   }
 

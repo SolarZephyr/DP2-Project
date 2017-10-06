@@ -1,4 +1,4 @@
-<h2>New Product</h2>
+<h2>Add Product</h2>
 
 <div *ngIf="false">
     [EDIT MODE]
@@ -41,7 +41,7 @@
         <br/>
         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Save" (click)="SaveProduct()"/>
         
-        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear"/>
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear" (click)="Clear()"/>
         <a routerLink="/Inventory">
             <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel"/>
         </a>

@@ -1,4 +1,4 @@
-<h2>New Transaction</h2>
+<h2>Add Sale</h2>
 <div>
   <label>
     Product:
@@ -10,7 +10,7 @@
   </label>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <input class="mdl-textfield__input" type="number" id="amt" [(ngModel)]="toAdd.AmtSold">
-    <label class="mdl-textfield__label" for="amt">Amount...</label>
+    <label class="mdl-textfield__label" for="amt">Quantity...</label>
   </div>
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" (click)="addSale()">
       Add Item
@@ -64,9 +64,8 @@
 
 
 <div>
-  <a routerLink="/Transactions">
       <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Confirm" (click)="saveTransaction()"/>
-  </a>
+
   <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" value="Clear" (click)="clear()"/>
   <a routerLink="/Transactions">
     <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" value="Cancel">
