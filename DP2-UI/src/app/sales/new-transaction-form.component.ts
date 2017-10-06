@@ -72,6 +72,7 @@ export class NewTransactionForm  implements OnInit{
   clear(){
     this.newTransaction = [];
     this.total = 0;
+    (<HTMLInputElement>document.getElementById("amt")).value = null;
   }
 
 
