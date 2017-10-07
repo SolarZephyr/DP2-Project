@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Sale, Product } from '../common/typings/typings.d';
 import { CRUDService } from '../common/services/crudservice';
+declare var componentHandler: any;
 @Component({
   selector: 'sales-form',
   templateUrl: './new-transaction-form.component.html',
@@ -120,10 +121,13 @@ export class NewTransactionForm  implements OnInit{
     );
   }
 
+  ngAfterViewInit() {
+    componentHandler.upgradeAllRegistered();
+  }
+
   ngAfterContentChecked(){
     this.MDLtxtFieldsCheckDirty();
   }
-  
 
   public MDLtxtFieldsCheckDirty(){
     var nodeList = document.querySelectorAll('.mdl-textfield'); //for all
