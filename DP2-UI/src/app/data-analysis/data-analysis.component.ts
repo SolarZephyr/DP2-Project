@@ -27,7 +27,7 @@ export class DataAnalysis {
 
   LoadAllSales(){
     this.sv.getPredictions().subscribe(data => {
-            console.log(data);
+            this.predictions = data;
             
             },
             err => {

@@ -9,8 +9,8 @@
     </select>
   </label>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="number" id="amt" [(ngModel)]="toAdd.AmtSold">
-    <label class="mdl-textfield__label" for="amt">Quantity...</label>
+    <input class="mdl-textfield__input" id="Amount" [(ngModel)]="toAdd.AmtSold" type="number"/>
+    <label for="Amount" class="mdl-textfield__label">Quantity...</label>
   </div>
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" (click)="addSale()">
       Add Item

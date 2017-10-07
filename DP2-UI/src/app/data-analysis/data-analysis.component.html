@@ -31,12 +31,12 @@
             </thead>
             <tbody>
                 <tr *ngFor="let prediction of predictions">
-                    <td>{{prediction.ProductID}}</td>
+                    <td>{{prediction.ID}}</td>
                     <td>{{prediction.Name}}</td>
                     <td>{{prediction.Type}}</td>
                     <td>{{prediction.Price | currency : "AUD" : 2}}</td>
                     <td>{{prediction.Stock}}</td>
-                    <td>{{prediction.PredictedAmountSold}}</td>
+                    <td>{{prediction.Expected}}</td>
                 </tr>
             </tbody>
         </table>
