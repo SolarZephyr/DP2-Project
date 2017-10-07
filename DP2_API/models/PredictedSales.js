@@ -3,7 +3,7 @@ var PredictedSales = {
     getPredictedSalesForItems: function(callback) {  
 			return db.query("SELECT Product.ID, Product.Name, Product.Type, Product.Price, Product.Stock, Transaction.Date as Date, Count(Sale.ProductID) AS Cnt FROM ((Sale Inner Join Product ON Sale.ProductId = Product.ID) Inner Join Transaction ON Sale.TransactionID = Transaction.ID) GROUP BY Product.Id, Transaction.Date ORDER BY Product.Id, Transaction.Date", function(err, result, fields)
 			{
-				var quresult = "";
+				var quresult = "[";
 				var prevDate = result[0].Date;
 				prevDate.setDate(result[0].Date.getDate() - 1);
 				var currentID = result[0].ID;
@@ -66,7 +66,7 @@ var PredictedSales = {
 					top += ((i-xmean)*(result[i].Cnt-ymean));
 					bottom += ((i-xmean)*(i-xmean));
 				}
-				quresult += "{\"ID\": \"" + result[result.length-1].ID + "\", \"Name\": \"" + result[result.length-1].Name + "\", \"Type\": \"" + result[result.length-1].Type + "\", \"Price\": \"" + result[result.length-1].Price + "\", \"Stock\": \"" + result[result.length-1].Stock + "\", \"Expected\": \"" + (top/bottom) + "\"}";
+				quresult += "{\"ID\": \"" + result[result.length-1].ID + "\", \"Name\": \"" + result[result.length-1].Name + "\", \"Type\": \"" + result[result.length-1].Type + "\", \"Price\": \"" + result[result.length-1].Price + "\", \"Stock\": \"" + result[result.length-1].Stock + "\", \"Expected\": \"" + (top/bottom) + "\"}]";
 				callback(quresult);
 		});
 	}
