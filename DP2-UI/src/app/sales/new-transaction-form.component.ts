@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Sale, Product } from '../common/typings/typings.d';
 import { CRUDService } from '../common/services/crudservice';
+import { Globals } from '../common/globals/globals';
+
 @Component({
   selector: 'sales-form',
   templateUrl: './new-transaction-form.component.html',
@@ -16,10 +18,9 @@ export class NewTransactionForm  implements OnInit{
   total: number = 0;
   tempSaleID: number = 0;
 
-  constructor(private sv: CRUDService){
+  constructor(private sv: CRUDService, private globals: Globals){
     this.transaction_id = 0;
     
-    //this.allProducts = CRUDService.getAllProducts();
     this.allProducts = [];
     this.newTransaction = [];
     this.toAdd = {};
@@ -93,9 +94,8 @@ export class NewTransactionForm  implements OnInit{
 
 
   saveTransaction(){
-    var tempEmp = {"EmployeeID":1};
     var maxT;
-    this.sv.newTransaction(tempEmp).subscribe(
+    this.sv.newTransaction(this.globals.employeeID).subscribe(
       () => {},
       err => {},
       () => {

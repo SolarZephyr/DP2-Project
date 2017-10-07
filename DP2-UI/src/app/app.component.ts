@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { CRUDService } from './common/services/crudservice';
 import { Employee } from './common/typings/typings.d';
+import { Globals } from './common/globals/globals';
 
 declare var componentHandler: any;
 @Component({
@@ -15,7 +16,7 @@ export class AppComponent {
   loggedIn : boolean;
   result: Employee = null;
   sub: any;
-  constructor(private element: ElementRef,  private sv: CRUDService){
+  constructor(private element: ElementRef,  private sv: CRUDService, private globals: Globals){
     this.loggedIn = false;
   }
   ngAfterViewInit() {
@@ -24,7 +25,7 @@ export class AppComponent {
 
   logIn() {
     let result: Employee; 
-    this.sv.getEmployeeByID(this.loggedId).subscribe(data => {
+    this.sv.getEmployeeByID(this.globals.employeeID).subscribe(data => {
       result = data;
       },
       err => {
@@ -39,7 +40,7 @@ export class AppComponent {
   }
 
   logOut() {
-    this.loggedId = null;
+    this.globals.employeeID = null;
     this.loggedIn = false;
   }
   
