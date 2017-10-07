@@ -22,15 +22,25 @@ var PredictedSales = {
 					{
 						xmean = (counter*(counter+1))/2;
 						ymean = ymean / (counter);
-						xmean = xmean / (counter);
-					
+						xmean = xmean / (counter); 
+						
 						for(i = startIndex; i < j; i++)
 						{
 							top += ((i-xmean)*(result[i].Cnt-ymean));
 							bottom += ((i-xmean)*(i-xmean));
 						}
+						
+						var gradient = top/bottom;
+						var timeline = j - startIndex;
+						var yinter = ymean - (gradient*xmean);
+						
+						var expected = yinter + (timeline*gradient) + (30*gradient);
+						if(expected < 0)
+						{
+							expected = 0;
+						}
 					
-						quresult += "{\"ID\": \"" + result[j-1].ID + "\", \"Name\": \"" + result[j-1].Name + "\", \"Type\": \"" + result[j-1].Type + "\", \"Price\": \"" + result[j-1].Price + "\", \"Stock\": \"" + result[j-1].Stock + "\", \"Expected\": \"" + (top/bottom) + "\"},";
+						quresult += "{\"ID\": \"" + result[j-1].ID + "\", \"Name\": \"" + result[j-1].Name + "\", \"Type\": \"" + result[j-1].Type + "\", \"Price\": \"" + result[j-1].Price + "\", \"Stock\": \"" + result[j-1].Stock + "\", \"Expected\": \"" + expected.toPrecision(2) + "\"},";
 					
 						xmean = 0.0;
 						ymean = 0.0;
@@ -66,7 +76,18 @@ var PredictedSales = {
 					top += ((i-xmean)*(result[i].Cnt-ymean));
 					bottom += ((i-xmean)*(i-xmean));
 				}
-				quresult += "{\"ID\": \"" + result[result.length-1].ID + "\", \"Name\": \"" + result[result.length-1].Name + "\", \"Type\": \"" + result[result.length-1].Type + "\", \"Price\": \"" + result[result.length-1].Price + "\", \"Stock\": \"" + result[result.length-1].Stock + "\", \"Expected\": \"" + (top/bottom) + "\"}]";
+				
+				var gradient = top/bottom;
+				var timeline = j - startIndex;
+				var yinter = ymean - (gradient*xmean);
+						
+				var expected = yinter + (timeline*gradient) + (30*gradient);
+				if(expected < 0)
+				{
+					expected = 0;
+				}
+				
+				quresult += "{\"ID\": \"" + result[result.length-1].ID + "\", \"Name\": \"" + result[result.length-1].Name + "\", \"Type\": \"" + result[result.length-1].Type + "\", \"Price\": \"" + result[result.length-1].Price + "\", \"Stock\": \"" + result[result.length-1].Stock + "\", \"Expected\": \"" + expected.toPrecision(2) + "\"}]";
 				callback(quresult);
 		});
 	}
