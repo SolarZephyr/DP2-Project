@@ -1,7 +1,7 @@
 var db = require('../dbconnection'); //reference of dbconnection.js  
 var Sales = {  
     getSaleById: function(id, callback) {  
-		return db.query("select * from sale where transactionid=?", [id], callback);  
+		return db.query("SELECT sale.ID, product.Name, producttype.Description, sale.TransactionID, sale.Amt, sale.UnitPrice, sale.ProductID from SALE INNER JOIN PRODUCT on SALE.ProductID = PRODUCT.ID INNER JOIN producttype on product.Type = producttype.ID where transactionid=?", [id], callback);  
     },  
 	getSalePredictionById: function(itemid, callback) {  
         return db.query("SELECT Date, Count(ProductID) AS Cnt FROM Sale Natural Join Transaction WHERE ProductId = ? GROUP BY Date ORDER BY Date", [itemid], function(err, result, fields)
