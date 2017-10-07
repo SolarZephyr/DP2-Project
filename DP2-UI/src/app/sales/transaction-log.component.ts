@@ -18,10 +18,12 @@ export class TransactionsComponent implements OnInit {
   param: any;
   sort: string;
   title = 'display sales';
-  state = {"skip":0, "take":10};
-  page = 1;
+  
+  
   filterObj: Transaction;
 
+  page = 1;
+  state = {"skip":0, "take":10};
   public paginate(dir: string){
     switch(dir){
       case('left'):

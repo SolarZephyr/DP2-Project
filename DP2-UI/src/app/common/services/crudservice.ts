@@ -34,13 +34,17 @@ export class CRUDService {
     // Make the HTTP request:
     return this.http.get(this.baseURL + "/Products").map(res => <Product[]>res );
   }
+  getProductPage(data: any): Observable<Product[]> {
+    // Make the HTTP request:
+    return this.http.get(this.baseURL + "/Products/skip/" + data.skip + '/take/' + data.take).map(res => <Product[]>res );
+  }
 
   /**
    * Gets products by ID
    * @param id The ID of the product to get
    */
   public getProductByID(id: number): Observable<Product> {
-      return this.http.get(this.baseURL + "/Products/" + id).map(res => <Product>res[0] );
+      return this.http.get(this.baseURL + "/Products/id/" + id).map(res => <Product>res[0] );
   }
 
   /**

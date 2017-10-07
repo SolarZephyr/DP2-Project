@@ -36,13 +36,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
-      <td>{{product.ID}}</td>
-      <td>{{product.Name}}</td>
-      <td>{{product.Description}}</td>
-      <td>{{product.Price | currency: "AUD" : 2 }}</td>
-      <td>{{product.Stock}}</td>
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price | currency: "AUD" : 2 }}</td>
+      <td>{{product.stock}}</td>
       <td>
-       <a routerLink="/Item/{{product.ID}}"> 
+       <a routerLink="/Item/{{product.id}}"> 
           <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
             <i class="material-icons">create</i>
           </button>
@@ -51,3 +51,12 @@
     </tr>
   </tbody>
 </table>
+<button *ngIf="state.skip != 0" (click)="paginate('left')" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+  <i class="material-icons">chevron_left</i>
+</button>
+
+  page {{page}} of ___
+
+<button (click)="paginate('right')" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+  <i class="material-icons">chevron_right</i>
+</button>

@@ -15,7 +15,7 @@ export interface Product{
    Name ?: string;
    Price ?: number;
    Stock ?: number;
-   Description ?: string;
+   Type ?: string;
 }
 
 export interface PredictedSales{

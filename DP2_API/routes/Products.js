@@ -1,25 +1,33 @@
 var express = require('express');  
 var router = express.Router();  
 var Products = require('../models/Products');  
-router.get('/:id?', function(req, res, next) {   
-	if (req.params.id) {  
-		Products.getProductById(req.params.id, function(err, rows) {  
-            if (err) {  
-                res.json(err);  
-            } else {  
-                res.json(rows);  
-            }  
-        });  
-	} else {  
-        Products.getAllProducts(function(err, rows)  {  
+router.get('/skip/:skip/take/:take', function(req, res, next) {  
+    Products.getProductsPage(Number(req.params.skip), Number(req.params.take), function(err, rows)  {  
 			if (err) {  
 				res.json(err);  
 			} else {  
 				res.json(rows);  
 			}  
-		});  
-    }  
+		});
+});		
+router.get('/id/:id', function(req, res, next) {   
+    Products.getProductById(req.params.id, function(err, rows) {  
+        if (err) {  
+            res.json(err);  
+        } else {  
+            res.json(rows);  
+        }  
+    });  	
 });  
+router.get('/all', function(req, res, next) {  
+    Products.getAllProducts(function(err, rows)  {  
+			if (err) {  
+				res.json(err);  
+			} else {  
+				res.json(rows);  
+			}  
+		});
+});	 
 router.post('/', function(req, res, next) {  
     Products.addProduct(req.body, function(err, count) {  
         if (err) {  
