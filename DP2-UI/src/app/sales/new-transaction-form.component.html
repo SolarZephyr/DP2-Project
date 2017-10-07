@@ -4,12 +4,12 @@
     Product:
     <select [(ngModel)]="toAdd.ProdID">
       <ng-container *ngFor="let product of allProducts">
-        <option  value="{{product.ID}}">{{product.Name}}</option>
+        <option  value="{{product.id}}">{{product.name}}</option>
       </ng-container>
     </select>
   </label>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="number" id="amt" ng-model="toAdd.AmtSold">
+    <input class="mdl-textfield__input" type="number" id="amt" [(ngModel)]="toAdd.AmtSold">
     <label class="mdl-textfield__label" for="amt">Quantity...</label>
   </div>
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" (click)="addSale()">

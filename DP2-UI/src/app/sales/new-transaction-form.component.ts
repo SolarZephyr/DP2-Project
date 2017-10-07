@@ -40,17 +40,20 @@ export class NewTransactionForm  implements OnInit{
             });
   }
 
+  findPrice(id: number){
+    return (this.allProducts.find(p => p.id == id).price);
+  }
 
   addSale(){
-    this.toAdd.TransID = this.transaction_id;
-    this.toAdd.UnitPrice =  this.allProducts.find(product => product.ID == this.toAdd.ProdID).Price;
-    const temp: Sale = {
-      ID: this.tempSaleID,
-      TransID: null,
-      ProdID: this.toAdd.ProdID,
-      UnitPrice: this.toAdd.UnitPrice,
-      AmtSold: this.toAdd.AmtSold
-    };
+    const temp: Sale = {    };
+
+    temp.ID = this.tempSaleID;
+    temp.TransID = null;
+    temp.ProdID = this.toAdd.ProdID;
+    temp.UnitPrice = this.findPrice(this.toAdd.ProdID);
+    temp.AmtSold = this.toAdd.AmtSold;
+    
+
     if(temp.AmtSold == null)
       temp.AmtSold = 1;
 

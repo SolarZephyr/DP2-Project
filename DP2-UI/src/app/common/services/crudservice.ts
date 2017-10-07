@@ -32,7 +32,7 @@ export class CRUDService {
    */
   getProducts(): Observable<Product[]> {
     // Make the HTTP request:
-    return this.http.get(this.baseURL + "/Products").map(res => <Product[]>res );
+    return this.http.get(this.baseURL + "/Products/all").map(res => <Product[]>res );
   }
   getProductPage(data: any): Observable<Product[]> {
     // Make the HTTP request:

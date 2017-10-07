@@ -10,12 +10,14 @@
  * by the Database
  */
 
+
 export interface Product{
-   ID ?: number;
-   Name ?: string;
-   Price ?: number;
-   Stock ?: number;
-   Type ?: string;
+   id ?: number;
+   name ?: string;
+   price ?: number;
+   stock ?: number;
+   description ?: string;
+   type ?: number;
 }
 
 export interface PredictedSales{
