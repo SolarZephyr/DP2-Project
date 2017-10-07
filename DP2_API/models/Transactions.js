@@ -8,6 +8,9 @@ var Transactions = {
     },
     maxTransaction: function(callback){
         return db.query("SELECT DISTINCT MAX(ID) AS 'MAX_TRANSACTION' FROM TRANSACTION", callback);
+    },
+    countTransaction: function(callback){
+        return db.query("SELECT DISTINCT COUNT(ID) AS 'COUNT' FROM TRANSACTION", callback);
     }
 };  
 module.exports = Transactions; 

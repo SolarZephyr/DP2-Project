@@ -21,11 +21,12 @@ export class InventoryComponent implements OnInit{
 
   ngOnInit(){
     this.LoadAllProducts();
+    this.calcMaxPage();
   }
 
 
   page = 1;
-
+  maxPage;
   state = {"skip":0, "take":10};
   public paginate(dir: string){
     switch(dir){
@@ -50,6 +51,21 @@ export class InventoryComponent implements OnInit{
 
   public calcpage(){
     this.page = (this.state.skip/10)+1;
+  }
+
+  public calcMaxPage(){
+    this.sv.getCountProduct().subscribe(data => {
+      this.maxPage = data[0].COUNT;
+      
+      },
+      err => {
+          console.log('we got an error:', err);
+          
+      },
+      () => {
+        this.maxPage = (this.maxPage / this.state.take);
+        this.maxPage = Math.ceil(this.maxPage);
+      });
   }
 
   LoadAllProducts(){

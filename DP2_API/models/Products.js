@@ -17,6 +17,9 @@ var Products = {
     },  
 	updateProductIdBody: function(Product, callback) {  
         return db.query("update product set name=?,type=?,price=?,stock=? where id=?", [Product.Name, Product.Type, Product.Price, Product.Stock, Product.Id], callback);  
+    },
+    getCountProducts: function(callback){
+        return db.query("SELECT DISTINCT COUNT(ID) AS 'COUNT' FROM PRODUCT", callback);
     }  
 };  
 module.exports = Products; 

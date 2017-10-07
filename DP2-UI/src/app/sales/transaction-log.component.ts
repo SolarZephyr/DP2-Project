@@ -22,6 +22,7 @@ export class TransactionsComponent implements OnInit {
   
   filterObj: Transaction;
 
+  maxPage;
   page = 1;
   state = {"skip":0, "take":10};
   public paginate(dir: string){
@@ -49,6 +50,22 @@ export class TransactionsComponent implements OnInit {
     this.page = (this.state.skip/10)+1;
   }
 
+
+  public calcMaxPage(){
+    this.sv.getCountTransaction().subscribe(data => {
+      this.maxPage = data[0].COUNT;
+      
+      },
+      err => {
+          console.log('we got an error:', err);
+          
+      },
+      () => {
+        this.maxPage = (this.maxPage / this.state.take);
+        this.maxPage = Math.ceil(this.maxPage);
+      });
+  }
+
   public MDLtxtFieldsCheckDirty(){
     var nodeList = document.querySelectorAll('.mdl-textfield'); //for all
     Array.prototype.forEach.call(nodeList, function (elem) {
@@ -64,6 +81,7 @@ export class TransactionsComponent implements OnInit {
     ngOnInit(){
       this.LoadAllTransactions();
       this.LoadEmployees();
+      this.calcMaxPage();
     }
   
     LoadEmployees(){

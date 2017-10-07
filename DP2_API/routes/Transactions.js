@@ -28,5 +28,14 @@ router.get('/max', function(req, res, next) {
 			}  
 		});
 });	
+router.get('/count', function(req, res, next) {  
+    Transactions.countTransaction(function(err, rows)  {  
+			if (err) {  
+				res.json(err);  
+			} else {  
+				res.json(rows);  
+			}  
+		});
+});	
 
 module.exports = router; 

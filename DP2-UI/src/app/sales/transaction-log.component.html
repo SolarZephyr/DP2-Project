@@ -57,9 +57,9 @@
       <i class="material-icons">chevron_left</i>
     </button>
     
-      page {{page}} of ___
+      page {{page}} of {{maxPage}}
 
-    <button (click)="paginate('right')" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
+    <button *ngIf="state.skip < (maxPage*state.take - state.take)" (click)="paginate('right')" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
       <i class="material-icons">chevron_right</i>
     </button>
   </div>

@@ -70,6 +70,10 @@ export class CRUDService {
      });
   }
 
+  public getCountProduct(): Observable<any> {
+    // Make the HTTP request:
+    return this.http.get(this.baseURL + "/Products/count").map(res => res );
+  }
 
   //TYPES
   /**
@@ -116,6 +120,10 @@ export class CRUDService {
   getMaxTransaction(): Observable<any> {
     // Make the HTTP request:
     return this.http.get(this.baseURL + "/Transactions/Max").map(res => res );
+  }
+  getCountTransaction(): Observable<any> {
+    // Make the HTTP request:
+    return this.http.get(this.baseURL + "/Transactions/Count").map(res => res );
   }
 
   
