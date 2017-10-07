@@ -136,12 +136,9 @@ export class CRUDService {
   }
 
   //PREDICTIONS
-  /**
-   * ???
-   * @param sort 
-   */
-  public getPredicitions(sort: string) {
-    return this.http.get(this.baseURL + "/Predicitions/" + sort).map(res => <PredictedSales[]>res );
+  public getPredictions(){
+    return this.http.get(this.baseURL + "/PredictedSales").map(res => <PredictedSales[]>res );
+    
   }
 
   //EMPLOYEES

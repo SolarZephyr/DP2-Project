@@ -11,19 +11,24 @@ export class DataAnalysis {
   title = 'Data Analysis';
   sort : string = "id";
   state = {"skip":0, "take":10};
-  predictions : Array<PredictedSales>
+  predictions : Array<any>
 
   constructor (private sv: CRUDService) {
 
   }
  
+  debug(){
+    console.log(JSON.stringify(this.predictions));
+  }
+
   ngOnInit(){
     this.LoadAllSales();
   }
 
   LoadAllSales(){
-    this.sv.getPredicitions(this.sort).subscribe(data => {
-            this.predictions = data;
+    this.sv.getPredictions().subscribe(data => {
+            console.log(data);
+            
             },
             err => {
                 console.log('we got an error:', err);

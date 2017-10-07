@@ -26,7 +26,7 @@ export interface PredictedSales{
     Type ?: number;
     Price ?: number;
     Stock ?: number;
-    PredictedAmountSold ?: number;
+    Expected ?: number;
  }
 
 export interface Sale{
