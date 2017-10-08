@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Sale, Product } from '../common/typings/typings.d';
 import { CRUDService } from '../common/services/crudservice';
 import { LoginService } from '../common/services/loginservice';
+import { Router }     from '@angular/router';
 declare var componentHandler: any;
 @Component({
   selector: 'sales-form',
@@ -18,7 +19,7 @@ export class NewTransactionForm  implements OnInit{
   total: number = 0;
   tempSaleID: number = 0;
 
-  constructor(private sv: CRUDService, public loginService: LoginService){
+  constructor(private router: Router, private sv: CRUDService, public loginService: LoginService){
     this.transaction_id = 0;
     
     //this.allProducts = CRUDService.getAllProducts();
@@ -93,14 +94,17 @@ export class NewTransactionForm  implements OnInit{
       //then post
       this.sv.postSale(this.newTransaction[i]).subscribe( 
         data => {},
-        err => console.log("There was an error:",err)
+        err => console.log("There was an error:",err),
+        () => {
+          this.router.navigate(['/Transactions']);
+        }
       );
     }
   }
 
 
   saveTransaction(){
-    var tempEmp = this.loginService.user.ID
+    var tempEmp = {"EmployeeID": this.loginService.user.ID}
     if(this.loginService.loggedIn){
       
     var maxT;
