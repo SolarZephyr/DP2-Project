@@ -1,8 +1,9 @@
 var db = require('../dbconnection'); //reference of dbconnection.js  
 var PredictedSales = {  
     getPredictedSalesForItems: function(callback) {  
-			return db.query("SELECT Product.ID, Product.Name, Product.Type, Product.Price, Product.Stock, Transaction.Date as Date, Count(Sale.ProductID) AS Cnt FROM ((Sale Inner Join Product ON Sale.ProductId = Product.ID) Inner Join Transaction ON Sale.TransactionID = Transaction.ID) GROUP BY Product.Id, Transaction.Date ORDER BY Product.Id, Transaction.Date", function(err, result, fields)
+			return db.query("CALL `mydb`.`getPredictedSalesForItems`()", function(err, result, fields)
 			{
+				result = result[0];
 				var quresult = "[";
 				var prevDate = result[0].Date;
 				prevDate.setDate(result[0].Date.getDate() - 1);

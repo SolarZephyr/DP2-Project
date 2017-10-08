@@ -6,7 +6,7 @@ router.get('/skip/:skip/take/:take', function(req, res, next) {
 			if (err) {  
 				res.json(err);  
 			} else {  
-				res.json(rows);  
+				res.json(rows[0]);  
 			}  
 		});
 });		
@@ -15,7 +15,7 @@ router.get('/id/:id', function(req, res, next) {
         if (err) {  
             res.json(err);  
         } else {  
-            res.json(rows);  
+            res.json(rows[0]);  
         }  
     });  	
 });  
@@ -24,7 +24,7 @@ router.get('/all', function(req, res, next) {
 			if (err) {  
 				res.json(err);  
 			} else {  
-				res.json(rows);  
+				res.json(rows[0]);  
 			}  
 		});
 });
@@ -33,7 +33,7 @@ router.get('/count', function(req, res, next) {
 			if (err) {  
 				res.json(err);  
 			} else {  
-				res.json(rows);  
+				res.json(rows[0]);  
 			}  
 		});
 });	 
@@ -52,14 +52,14 @@ router.put('/:id?', function(req, res, next) {
         if (err) {  
             res.json(err);  
         } else {  
-            res.json(rows);  
+            res.json(rows[0]);  
         }
 	} else {
 		Products.updateProductIdBody(req.body, function(err, rows)  {  
 			if (err) {  
 				res.json(err);  
 			} else {  
-				res.json(rows);  
+				res.json(rows[0]);  
 			}  
 		});  
     }

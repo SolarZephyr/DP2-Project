@@ -4,7 +4,7 @@ var Sales = {
 		return db.query("select * from sale where transactionid=?", [id], callback);  
     },  
 	getSalePredictionById: function(itemid, callback) {  
-        return db.query("SELECT Date, Count(ProductID) AS Cnt FROM Sale Natural Join Transaction WHERE ProductId = ? GROUP BY Date ORDER BY Date", [itemid], function(err, result, fields)
+        return db.query("CALL `mydb`.`getSalePredictionById`(?)", [itemid], function(err, result, fields)
 		{
 			var xmean = 0.0;
 			var ymean = 0.0;
@@ -47,7 +47,7 @@ var Sales = {
 		});
     }, 
 	getSalePredictionByType: function(groupid, callback) {  
-        return db.query("SELECT Transaction.Date, Count(Sale.ProductID) AS Cnt FROM ((Sale Inner Join Product ON Sale.ProductId = Product.ID) Inner Join Transaction ON Sale.TransactionID = Transaction.ID) WHERE Product.Type = ? GROUP BY Transaction.Date", [groupid], function(err, result, fields)
+        return db.query("CALL `mydb`.`getSalePredictionByType`(?)", [groupid], function(err, result, fields)
 		{
 			var xmean = 0.0;
 			var ymean = 0.0;
@@ -90,7 +90,7 @@ var Sales = {
 		});
     }, 
     addSale: function(Sale, callback) {  
-        return db.query("Insert into sale (transactionid, amt, unitprice, productid) values(?,?,?,?)", [Sale.TransID, Sale.AmtSold, Sale.UnitPrice, Sale.ProdID], callback);  
+        return db.query("CALL `mydb`.`addsale`(?,?,?,?)", [Sale.TransID, Sale.AmtSold, Sale.UnitPrice, Sale.ProdID], callback);  
     }
 };  
 module.exports = Sales; 

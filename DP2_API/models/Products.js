@@ -1,25 +1,25 @@
 var db = require('../dbconnection.js'); //reference of dbconnection.js  
 var Products = {  
     getAllProducts: function(callback) {  
-        return db.query("select product.id, product.name, product.price, product.stock, producttype.description from product inner join producttype on product.type = producttype.ID", callback);  
+        return db.query("CALL `mydb`.`GetAllProducts`()", callback);  
     },
     getProductsPage: function(skip, take, callback) {  
-        return db.query("select product.id, product.name, product.price, product.stock, product.type, producttype.description from product inner join producttype on product.type = producttype.ID LIMIT ?,?", [skip, take], callback);  
+        return db.query("CALL `mydb`.`getProductsPage`(?,?)", [skip, take], callback);  
     },  
     getProductById: function(id, callback) {  
-        return db.query("select * from product where Id = ?", [id], callback);  
+        return db.query("CALL `mydb`.`getProductById`(?)", [id], callback);  
     },  
     addProduct: function(Product, callback) {  
-        return db.query("Insert into product (name, type, price, stock) values(?,?,?,?)", [Product.Name, Product.Type, Product.Price, Product.Stock], callback);  
+        return db.query("CALL `mydb`.`addProduct`(?,?,?,?)", [Product.Name, Product.Type, Product.Price, Product.Stock], callback);  
     },  
     updateProduct: function(id, Product, callback) {  
-        return db.query("update product set name=?,type=?,price=?,stock=? where id=?", [Product.Name, Product.Type, Product.Price, Product.Stock, id], callback);  
+        return db.query("CALL `mydb`.`updateProduct`(?,?,?,?,?)", [id, Product.Name, Product.Type, Product.Price, Product.Stock], callback);  
     },  
 	updateProductIdBody: function(Product, callback) {  
-        return db.query("update product set name=?,type=?,price=?,stock=? where id=?", [Product.Name, Product.Type, Product.Price, Product.Stock, Product.Id], callback);  
+        return db.query("CALL `mydb`.`updateProduct`(?,?,?,?,?)", [Product.Id, Product.Name, Product.Type, Product.Price, Product.Stock], callback);  
     },
     getCountProducts: function(callback){
-        return db.query("SELECT DISTINCT COUNT(ID) AS 'COUNT' FROM PRODUCT", callback);
+        return db.query("CALL `mydb`.`getCountProducts`()", callback);
     }  
 };  
 module.exports = Products; 

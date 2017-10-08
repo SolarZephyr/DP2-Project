@@ -6,7 +6,7 @@ router.get('/skip/:skip/take/:take', function(req, res, next) {
 			if (err) {  
 				res.json(err);  
 			} else {  
-				res.json(rows);  
+				res.json(rows[0]);  
 			}  
 		});
 });		
@@ -24,7 +24,7 @@ router.get('/max', function(req, res, next) {
 			if (err) {  
 				res.json(err);  
 			} else {  
-				res.json(rows);  
+				res.json(rows[0]);  
 			}  
 		});
 });	
@@ -33,7 +33,7 @@ router.get('/count', function(req, res, next) {
 			if (err) {  
 				res.json(err);  
 			} else {  
-				res.json(rows);  
+				res.json(rows[0]);  
 			}  
 		});
 });	
