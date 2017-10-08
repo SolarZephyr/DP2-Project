@@ -36,5 +36,14 @@ router.post('/', function(req, res, next) {
             res.json(req.body); //or return count for 1 & 0  
         }  
     });  
+}); 
+router.get('/CSV', function(req, res, next) {  
+    Sales.genCSV(function(err, rows) {  
+        if (err) {  
+            res.json(err);  
+        } else {  
+            res.json(rows);  
+        }  
+		});
 });  
 module.exports = router; 

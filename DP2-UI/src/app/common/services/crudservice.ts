@@ -137,6 +137,10 @@ export class CRUDService {
     return this.http.get(this.baseURL + "/Transactions/Count").map(res => res );
   }
 
+  getCSV(): Observable<any> {
+    // Make the HTTP request:
+    return this.http.get(this.baseURL + "/Sales/CSV").map(res => res );
+  }
   
   /**
    * Returns all Sales associated with a particular ID

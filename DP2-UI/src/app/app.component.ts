@@ -12,7 +12,7 @@ declare var componentHandler: any;
 
 export class AppComponent {
   title = 'app';
-  loggedId: number = 0;
+  loggedId: number = null;
   loggedIn : boolean;
   result: Employee = null;
   sub: any;

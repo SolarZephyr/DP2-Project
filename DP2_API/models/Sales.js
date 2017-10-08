@@ -91,6 +91,9 @@ var Sales = {
     }, 
     addSale: function(Sale, callback) {  
         return db.query("CALL `mydb`.`addsale`(?,?,?,?)", [Sale.TransID, Sale.AmtSold, Sale.UnitPrice, Sale.ProdID], callback);  
-    }
+	},
+	genCSV: function(callback) {  
+        return db.query("CALL `mydb`.`ToCSV`()", callback);  
+	},
 };  
 module.exports = Sales; 

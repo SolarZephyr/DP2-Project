@@ -124,6 +124,17 @@ export class TransactionsComponent implements OnInit {
     );
    
   }
+
+  GenerateCSV(){
+    console.log("Generating");
+    this.sv.getCSV().subscribe(
+      () => {},
+      err => {},
+      () => {
+        console.log("Successfully generated CSV");
+      }
+    );
+  }
   
   LoadAllTransactions(){
     this.sv.getTransactions(this.state).subscribe(data => {
