@@ -12,12 +12,12 @@
 
 
 export interface Product{
-   id ?: number;
-   name ?: string;
-   price ?: number;
-   stock ?: number;
-   description ?: string;
-   type ?: number;
+   ID ?: number;
+   Name ?: string;
+   Price ?: number;
+   Stock ?: number;
+   Description ?: string;
+   Type ?: number;
 }
 
 export interface PredictedSales{

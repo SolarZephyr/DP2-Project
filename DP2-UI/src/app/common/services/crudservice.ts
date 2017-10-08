@@ -75,6 +75,11 @@ export class CRUDService {
     return this.http.get(this.baseURL + "/Products/count").map(res => res );
   }
 
+  public getLowStockProduct(): Observable<Product[]> {
+    // Make the HTTP request:
+    return this.http.get(this.baseURL + "/Products/LowStock").map(res => <Product[]>res );
+  }
+
   //TYPES
   /**
    * This call gets all types
@@ -84,6 +89,12 @@ export class CRUDService {
   }
 
   //TRANSACTIONS & SALES
+
+  public voidTransaction(id: number): Observable<any> {
+    // Make the HTTP request:
+    return this.http.get(this.baseURL + "/voidTransaction/" + id).map(res => res );
+  }
+
   /**
    * Returns a number of transactions ('take') 
    * @param data the 'skip' and 'take' that make up pages of transaction records (Eg. Skip 10, take 10 would be page 2)

@@ -37,5 +37,16 @@ router.get('/count', function(req, res, next) {
 			}  
 		});
 });	
+router.get('/voidTransaction/:id', function(req, res, next) {  
+    Transactions.updateTransactionStatus(req.params.id, 0, function(err, rows) {  
+
+	if (err) {  
+		res.json(err);  
+	} else {  
+		res.json(rows[0]);  
+	}
+
+    });  
+});  
 
 module.exports = router; 

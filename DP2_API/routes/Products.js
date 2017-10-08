@@ -28,6 +28,15 @@ router.get('/all', function(req, res, next) {
 			}  
 		});
 });
+router.get('/LowStock', function(req, res, next) {  
+    Products.getProductsLowStock(function(err, rows)  {  
+			if (err) {  
+				res.json(err);  
+			} else {  
+				res.json(rows);  
+			}  
+		});
+});
 router.get('/count', function(req, res, next) {  
     Products.getCountProducts(function(err, rows)  {  
 			if (err) {  

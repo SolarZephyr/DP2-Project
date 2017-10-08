@@ -6,6 +6,9 @@ var Products = {
     getProductsPage: function(skip, take, callback) {  
         return db.query("CALL `mydb`.`getProductsPage`(?,?)", [skip, take], callback);  
     },  
+    getProductsLowStock: function(callback) {  
+        return db.query("SELECT * FROM PRODUCT WHERE STOCK < 10", callback);  
+    },
     getProductById: function(id, callback) {  
         return db.query("CALL `mydb`.`getProductById`(?)", [id], callback);  
     },  

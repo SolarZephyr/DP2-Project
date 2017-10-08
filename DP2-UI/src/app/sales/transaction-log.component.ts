@@ -97,8 +97,7 @@ export class TransactionsComponent implements OnInit {
   constructor(private sv: CRUDService) {
     this.transactions = [];
     this.sales = [];
-    this.months = ["January", "Febuary","March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  }
+     }
 
   selectTransaction(newID: number){
     this.selectedID = newID;
@@ -113,11 +112,16 @@ export class TransactionsComponent implements OnInit {
   }
 
   updateStatus(){
-    if (this.transactions.find(transaction => transaction.ID == this.selectedID).Status == 0){
-      this.transactions.find(transaction => transaction.ID == this.selectedID).Status = 1;
-    } else {
-      this.transactions.find(transaction => transaction.ID == this.selectedID).Status = 0;
-    }
+    
+    this.sv.voidTransaction(this.selectedID).subscribe(
+      () => {},
+      err => {
+        console.log('we got an error:', err);
+      },
+      () => {
+        console.log("voided: " + this.selectedID);
+      }
+    );
    
   }
   

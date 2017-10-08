@@ -43,7 +43,7 @@ export class NewTransactionForm  implements OnInit{
   }
 
   findPrice(id: number){
-    return (this.allProducts.find(p => p.id == id).price);
+    return (this.allProducts.find(p => p.ID == id).Price);
   }
 
   addSale(){

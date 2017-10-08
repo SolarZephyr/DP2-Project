@@ -8,32 +8,7 @@
 <h2>Sales History</h2>
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--4-col">
-    <p><strong>Current Selected ID:</strong> {{this.selectedID}}</p>
-    <label for="empSort">
-      <input type="checkbox" name="EmployeeSort" id="empSort" 
-      ng-model="empSort" value="employeeSort"/> Sort By EmployeeID
-    </label>
-    <div class="mdl-selectfield mdl-js-selectfield">
-      EmployeeID: 
-      <select name="EmployeeId" id="EmployeeId" class="mdl-selectfield__select" ng-model="employeeID">
-          <option *ngFor="let employee of employees" [value]="employee.ID">
-          {{employee.ID}}
-          </option>
-      </select>
-    </div>
-    <br/>
-    <label for="monthSort">
-        <input type="checkbox" name="MonthSort" id="monthSort" 
-        ng-model="sortMonth" value="monthSort"/> Sort By Month
-    </label>
-    <div class="mdl-selectfield mdl-js-selectfield">
-      Month
-      <select name="month" id="month" class="mdl-selectfield__select" ng-model="selectedMonth">
-          <option *ngFor="let month of months" [value]="month">
-          {{month}}
-          </option>
-      </select>
-  </div>
+   
 
     <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" >
       <thead>

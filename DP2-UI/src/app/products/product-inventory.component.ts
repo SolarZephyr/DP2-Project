@@ -14,7 +14,7 @@ import { CRUDService } from '../common/services/crudservice';
 export class InventoryComponent implements OnInit{
   products: Array<Product>;
   types: Array<ProdType>;
-
+  mode: string = "default";
   constructor(private sv: CRUDService){
     this.products = [];
   }
@@ -68,16 +68,40 @@ export class InventoryComponent implements OnInit{
       });
   }
 
+  LoadDefault(){
+    this.mode = "default";
+    this.state.skip = 0;
+    this.state.take = 10;
+    this.LoadAllProducts();
+  }
+
+  LoadLowStock(){
+    this.mode = "lowstock";
+    this.state.skip = 0;
+    this.state.take = 10;
+    this.LoadLowProducts();
+  }
+
   LoadAllProducts(){
   var data = {"skip":this.state.skip,"take":this.state.take};
   this.sv.getProductPage(data).subscribe(data => {
           this.products = data;
-          console.log(data);
+          
           },
           err => {
               console.log('we got an error:', err);
               
           });
+  }
+
+  LoadLowProducts(){
+    this.sv.getLowStockProduct().subscribe(data => {
+            this.products = data;
+            },
+            err => {
+                console.log('we got an error:', err);
+                
+            });
   }
 
 

@@ -1,28 +1,11 @@
 <h2>Inventory</h2>
-<div class="mdl-grid">
-  <div class="mdl-cell--cell-12">
-      <label for="EmployeeSales">
-          <input type="radio" name="order" id="OrderById"
-          ng-model="order" value="id" checked/> Sort By ID
-      </label>
-      <label for="SalesPrediction">
-          <input type="radio" name="order" id="OrderByName" 
-          ng-model="order" value="name"/> Sort By Name
-      </label>
-      <label for="NeededStock">
-          <input type="radio" name="order" id="OrderByType"
-          ng-model="order" value="type"/> Sort By Type
-      </label>
-      <label for="NeededStock">
-        <input type="radio" name="order" id="OrderByPrice"
-        ng-model="order" value="price"/> Sort By Price
-      </label>
-      <label for="NeededStock">
-        <input type="radio" name="order" id="OrderByStock"
-        ng-model="order" value="stock"/> Sort By Stock
-      </label>
-  </div>
-</div>
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" (click)="LoadDefault()">
+  All Stock
+</button>
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" (click)="LoadLowStock()">
+  Low Stock
+</button>
+
 <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
   <thead>
     <tr>
@@ -36,11 +19,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
-      <td>{{product.id}}</td>
-      <td>{{product.name}}</td>
-      <td>{{product.description}}</td>
-      <td>{{product.price | currency: "AUD" : 2 }}</td>
-      <td>{{product.stock}}</td>
+      <td>{{product.ID}}</td>
+      <td>{{product.Name}}</td>
+      <td>{{product.Description}}</td>
+      <td>{{product.Price | currency: "AUD" : 2 }}</td>
+      <td>{{product.Stock}}</td>
       <td>
        <a routerLink="/Item/{{product.id}}"> 
           <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
@@ -51,6 +34,7 @@
     </tr>
   </tbody>
 </table>
+<div *ngIf="mode == 'default'">
 <button *ngIf="state.skip != 0" (click)="paginate('left')" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
   <i class="material-icons">chevron_left</i>
 </button>
@@ -60,3 +44,4 @@
 <button *ngIf="state.skip < (maxPage*state.take - state.take)" (click)="paginate('right')" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect">
   <i class="material-icons">chevron_right</i>
 </button>
+</div>

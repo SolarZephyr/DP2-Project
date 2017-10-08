@@ -11,6 +11,9 @@ var Transactions = {
     },
     countTransaction: function(callback){
         return db.query("CALL `mydb`.`countTransaction`()", callback);
-    }
+    },
+    updateTransactionStatus: function(id,status,callback){
+        return db.query("CALL `mydb`.`UpdateTransactionStatus`(?,?)", [id, status], callback);
+    },
 };  
 module.exports = Transactions; 
