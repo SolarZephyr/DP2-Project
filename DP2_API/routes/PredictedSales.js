@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     });  
 });  
 router.get('/:type', function(req, res, next) {   
-		PredictedSales.getPredictedSalesForType(function(err, rows) {  
+		PredictedSales.getPredictedSalesForType(req.params.id, function(err, rows) {  
         if (err) {  
             res.json(err);  
         } else {  

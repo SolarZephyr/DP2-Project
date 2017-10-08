@@ -161,10 +161,10 @@ var PredictedSales = {
 			
 				
 				quresult += "{\"ID\": \"" + result[result.length-1].ID + "\", \"Name\": \"" + result[result.length-1].Name + "\", \"Type\": \"" + result[result.length-1].Type + "\", \"Price\": \"" + result[result.length-1].Price + "\", \"Stock\": \"" + result[result.length-1].Stock + "\", \"Expected\": \"" +  Math.ceil(expected) + "\"}]";
-				callback(quresult);
-				
-		});
-		getPredictedSalesForType: function(callback) {  
+				callback(quresult);	
+			});
+		},
+		getPredictedSalesForType: function(type, callback) {  
 			return db.query("SELECT Product.Type, Transaction.Date as Date, Count(Sale.ProductID) AS Cnt FROM ((Sale Inner Join Product ON Sale.ProductId = Product.ID) Inner Join Transaction ON Sale.TransactionID = Transaction.ID) GROUP BY Product.Type, Transaction.Date ORDER BY Product.Type, Transaction.Date", function(err, result, fields)
 			{
 				var quresult = "[";
