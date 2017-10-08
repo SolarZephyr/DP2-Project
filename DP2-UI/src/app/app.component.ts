@@ -2,6 +2,7 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { CRUDService } from './common/services/crudservice';
 import { Employee } from './common/typings/typings.d';
 
+import {LoginService} from './common/services/loginservice';
 declare var componentHandler: any;
 @Component({
   selector: 'app-root',
@@ -15,32 +16,31 @@ export class AppComponent {
   loggedIn : boolean;
   result: Employee = null;
   sub: any;
-  constructor(private element: ElementRef,  private sv: CRUDService){
+  constructor(private element: ElementRef,  private sv: CRUDService, public loginService: LoginService){
     this.loggedIn = false;
   }
   ngAfterViewInit() {
     componentHandler.upgradeAllRegistered();
   }
 
+
   logIn() {
-    let result: Employee; 
+    
     this.sv.getEmployeeByID(this.loggedId).subscribe(data => {
-      result = data;
+      this.loginService.user = data;
       },
       err => {
           console.log('we got an error:', err);
           
       }, () =>{
-        if (result != null)
-          {
-            this.loggedIn = true;
-          }
+        if(this.loginService.user != null){
+          this.loginService.loggedIn = true;
+        }
       });
   }
-
-  logOut() {
-    this.loggedId = null;
-    this.loggedIn = false;
+  logOut(){
+      this.loginService.loggedIn = false;
+      this.loginService.user = null;
   }
   
   

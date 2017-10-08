@@ -145,7 +145,7 @@ export class CRUDService {
   /**
    * Get all employees
    */
-  public getEmployees(): Observable<Product[]> {
+  public getEmployees(): Observable<Employee[]> {
     // Make the HTTP request:
     return this.http.get(this.baseURL + "/Employees").map(res => <Employee[]>res );
   }
@@ -162,7 +162,7 @@ export class CRUDService {
    * Get Employee by ID
    * @param id the ID to get employee by
    */
-  public getEmployeeByID(id: number): Observable<Product> {
+  public getEmployeeByID(id: number): Observable<Employee> {
     return this.http.get(this.baseURL + "/Employees/" + id).map(res => <Employee>res[0] );
   }
 

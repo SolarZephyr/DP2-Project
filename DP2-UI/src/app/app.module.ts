@@ -21,6 +21,10 @@ import {HttpClientModule} from '@angular/common/http';
 //IMPORT ROUTES
 import { appRoutes } from './app.routing';
 import { RouterModule, Routes } from '@angular/router';
+
+//IMPORT LOGIN SHARED
+import {Login} from './common/login/Login';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +45,8 @@ import { RouterModule, Routes } from '@angular/router';
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    Login
   ],
   providers: [],
   bootstrap: [AppComponent]

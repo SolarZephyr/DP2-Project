@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Sale, Product } from '../common/typings/typings.d';
 import { CRUDService } from '../common/services/crudservice';
+import { LoginService } from '../common/services/loginservice';
 declare var componentHandler: any;
 @Component({
   selector: 'sales-form',
@@ -17,7 +18,7 @@ export class NewTransactionForm  implements OnInit{
   total: number = 0;
   tempSaleID: number = 0;
 
-  constructor(private sv: CRUDService){
+  constructor(private sv: CRUDService, public loginService: LoginService){
     this.transaction_id = 0;
     
     //this.allProducts = CRUDService.getAllProducts();
@@ -46,8 +47,8 @@ export class NewTransactionForm  implements OnInit{
   }
 
   addSale(){
+    
     const temp: Sale = {    };
-
     temp.ID = this.tempSaleID;
     temp.TransID = null;
     temp.ProdID = this.toAdd.ProdID;
@@ -62,6 +63,7 @@ export class NewTransactionForm  implements OnInit{
 
     this.newTransaction.push(temp);
     this.total += (temp.UnitPrice*temp.AmtSold);
+    
   }
 
   remove(toRem: number){
@@ -97,7 +99,9 @@ export class NewTransactionForm  implements OnInit{
 
 
   saveTransaction(){
-    var tempEmp = {"EmployeeID":1};
+    var tempEmp = this.loginService.user.ID
+    if(this.loginService.loggedIn){
+      
     var maxT;
     this.sv.newTransaction(tempEmp).subscribe(
       () => {},
@@ -119,6 +123,10 @@ export class NewTransactionForm  implements OnInit{
         )
       }
     );
+
+  }else{
+    alert("Please log in!");
+  }
   }
 
   ngAfterViewInit() {
