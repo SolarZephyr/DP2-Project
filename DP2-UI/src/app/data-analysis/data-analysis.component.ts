@@ -16,11 +16,7 @@ export class DataAnalysis {
   constructor (private sv: CRUDService) {
 
   }
- 
-  debug(){
-    console.log(JSON.stringify(this.predictions));
-  }
-
+  
   ngOnInit(){
     this.LoadAllSales();
   }
