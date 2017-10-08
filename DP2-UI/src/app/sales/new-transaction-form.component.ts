@@ -35,6 +35,7 @@ export class NewTransactionForm  implements OnInit{
   LoadAllProducts(){
     this.sv.getProducts().subscribe(data => {
             this.allProducts = data;
+            console.log(data);
             },
             err => {
                 console.log('we got an error:', err);
